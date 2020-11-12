@@ -1,6 +1,6 @@
 drop database if exists webstore;
 create database webstore;
-use verkkokauppa;
+use webstore;
 
 create table tuoteryhma (
   id int primary key auto_increment,
