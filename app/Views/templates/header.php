@@ -1,19 +1,37 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?= base_url('/css/style.css');?>">
-    <!-- link rel="preconnect" href="https://fonts.gstatic.com" -->
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
-    <title>Cippoi & Cuppei</title>
-  </head>
-  <body>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="<?= base_url('/css/style.css'); ?>">
+  <!-- link rel="preconnect" href="https://fonts.gstatic.com" -->
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+  <title>Cippoi & Cuppei</title>
+</head>
+<!-- Tee bootstrap-asettelu oikein ja paljon muuta -->
+
+<body>
+  <div class="container-fluid">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="http://placehold.it/900x350&text=1st" height="250px" alt="First slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="http://placehold.it/900x350&text=2nd" height="250px" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="http://placehold.it/900x350&text=3rd" height="250px" alt="Third slide">
+        </div>
+      </div>
+    </div>
+
     <nav class="navbar navbar-expand-lg navbar-dark">
       <a class="navbar-brand logo" href="#">Cippoi & Cuppei</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,16 +40,16 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Tuotteet
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <?php foreach($tuoteryhmat as $tuoteryhma): ?>
-                <a class="dropdown-item" href="<?=site_url('kauppa/index/' . $tuoteryhma['id']) ?>"><?=$tuoteryhma['nimi']?></a>
-              <?php endforeach;?>
+              <?php foreach ($tuoteryhmat as $tuoteryhma) : ?>
+                <a class="dropdown-item" href="<?= site_url('kauppa/index/' . $tuoteryhma['id']) ?>"><?= $tuoteryhma['nimi'] ?></a>
+              <?php endforeach; ?>
             </div>
           </li>
-        </ul>    
+        </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="#">Yhteystiedot</a>
@@ -42,7 +60,8 @@
               </i>
             </a>
           </li>
-        </ul>  
+        </ul>
       </div>
     </nav>
-    <div class="container">
+  </div>
+  <div class="container">

@@ -1,10 +1,12 @@
     </div>
+    <div class="container-fluid">
     <footer class="py-5">
-      <div class="container">
+      <div>
         <p class="m-0 text-center text-muted">Habanerot 2020</p>
       </div>
       <!-- /.container -->
     </footer>
+    </div>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
