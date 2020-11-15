@@ -1,8 +1,5 @@
-<div class="container">
-
     <div class="row">
-
-        <div class="col-lg-3 pt-5">
+        <div class="col-lg-3">
             <!-- <h4 class="my-4">Lisää</h4> -->
             <div class="list-group pt-4">
                 <?php foreach ($tuoteryhmat as $tuoteryhma) : ?>
@@ -11,7 +8,7 @@
             </div>
         </div>
 
-        <div class="col-lg-9 pt-5">
+        <div class="col-lg-9">
             <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -39,12 +36,7 @@
                 </a>
             </div>
             <!-- /.row -->
-
         </div>
         <!-- /.col-lg-9 -->
-
     </div>
     <!-- /.row -->
-
-</div>
-<!-- /.container -->
