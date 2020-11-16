@@ -16,7 +16,7 @@ class Home extends BaseController
 	{
 		$data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
 		echo view('templates/header',$data);
-		echo view('etusivu');
+		echo view('etusivu', $data);
 		echo view('templates/footer');
 	}
 
