@@ -60,6 +60,11 @@
               </i>
             </a>
           </li>
+          <li class="nav-item">
+            <a id="login" class="nav-link" href="<?= site_url('login/index'); ?>">
+              Kirjaudu
+            </a>
+          </li>
         </ul>
       </div>
     </nav>

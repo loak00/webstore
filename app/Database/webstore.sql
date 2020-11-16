@@ -2,6 +2,14 @@ drop database if exists webstore;
 create database webstore;
 use webstore;
 
+create table user (
+    id int primary key auto_increment,
+    username varchar(30) not null unique,
+    password varchar(255) not null,
+    firstname varchar(100),
+    lastname varchar(100)
+);
+
 create table tuoteryhma (
   id int primary key auto_increment,
   nimi varchar(50) unique not null
