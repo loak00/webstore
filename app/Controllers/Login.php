@@ -47,4 +47,31 @@ class Login extends BaseController
             return redirect('login');
         }
     }
+
+    public function check() {
+        $model = new LoginModel();
+
+        if (!$this->validate([
+            'user' => 'required|min_length[8]|max_length[30]',
+            'password' => 'required|min_length[8]|max_length[30]',
+        ])){
+            $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
+            echo view('templates/header', $data);
+            echo view('login/login');
+            echo view('templates/footer');
+        }
+        else {
+            $user = $model->check(
+                $this->request->getVar('user'),
+                $this->request->getVar('password')
+            );
+            if ($user) {
+                $_SESSION['user'] = $user;
+                return redirect('/');
+            }
+            else {
+                return redirect('login');
+            }
+        }
+    }
 }
