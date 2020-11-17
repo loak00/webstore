@@ -37,7 +37,7 @@ insert into tuoteryhma (id, nimi) values (4, 'Ruokailuvälineet');
 
 
 insert into tuote (nimi, kuvaus, hinta, kuva, varastomaara,tuoteryhma_id) 
-values ('Kuppi','Tämä on kuppi',7000,NULL,10,1);
+values ('Nalle Puh Ihaa','Masentunut aasi',20.50,'1.png',10,1);
 
 insert into tuote (nimi, kuvaus, hinta, kuva, varastomaara,tuoteryhma_id) 
 values ('Lautanen','Tämä on lautanen',6680,NULL,100,2);
