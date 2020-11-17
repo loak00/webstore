@@ -7,16 +7,14 @@ use App\Models\TuoteryhmaModel;
 class Ostoskori extends BaseController
 {
   private $tuoteryhmaModel=null;
-   //private $tuoteModel=null;
+//private $tuoteModel=null;
 
 	function __construct()
   {
-    
     $this->tuoteryhmaModel = new TuoteRyhmaModel();
     $this->ostoskoriModel = new OstoskoriModel();
     //$this->tuoteModel = new TuoteModel();
   }
-
 
 	public function index()
 	{
