@@ -10,6 +10,8 @@ create table user (
     lastname varchar(100)
 );
 
+
+
 create table tuoteryhma (
   id int primary key auto_increment,
   nimi varchar(50) unique not null
