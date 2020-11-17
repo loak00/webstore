@@ -50,6 +50,19 @@
             </div>
           </li>
         </ul>
+
+        <!-- Lisätty pohjaa mahdolliselle etsintämahdollisuudelle -->
+        <form class="mx-2 my-auto d-inline w-50">
+          <div class="input-group">
+            <input type="text" class="form-control border border-right-0" placeholder="Etsi tuotteista...">
+            <span class="input-group-append">
+              <button class="btn btn-outline-light border border-left-0" type="button">
+                <i class="fa fa-search"></i>
+              </button>
+            </span>
+          </div>
+        </form>
+
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="#">Yhteystiedot</a>
