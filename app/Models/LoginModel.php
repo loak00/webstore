@@ -10,6 +10,12 @@ class LoginModel extends Model
 
     protected $allowedFields = ['username', 'password', 'firstname', 'lastname'];
 
+    public function __construct()
+    {
+        $session = \Config\Services::session();
+        $session->start();
+    }
+
     public function check($username, $password)
     {
         $this->where('username', $username);

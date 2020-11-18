@@ -8,12 +8,12 @@ use App\Models\TuoteryhmaModel;
 class Login extends BaseController
 {
     private $tuoteryhmaModel = null;
+    private $loginModel = null;
 
     public function __construct()
     {
-        $session = \Config\Services::session();
-        $session->start();
         $this->tuoteryhmaModel = new TuoteRyhmaModel();
+        $this->loginModel = new LoginModel();
     }
 
     public function index()
@@ -26,7 +26,7 @@ class Login extends BaseController
 
     public function registeration()
     {
-        $model = new LoginModel();
+        // $model = new LoginModel();
 
         if (!$this->validate([
             'username' => 'required|min_length[8]|max_length[30]',
@@ -38,7 +38,7 @@ class Login extends BaseController
             echo view('login/register', $data);
             echo view('templates/footer', $data);
         } else {
-            $model->save([
+            $this->loginModel->save([
                 'username' => $this->request->getVar('username'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
                 'firstname' => $this->request->getVar('firstname'),
@@ -49,7 +49,7 @@ class Login extends BaseController
     }
 
     public function check() {
-        $model = new LoginModel();
+        // $model = new LoginModel();
 
         if (!$this->validate([
             'user' => 'required|min_length[8]|max_length[30]',
@@ -61,7 +61,7 @@ class Login extends BaseController
             echo view('templates/footer');
         }
         else {
-            $user = $model->check(
+            $user = $this->loginModel->check(
                 $this->request->getVar('user'),
                 $this->request->getVar('password')
             );
