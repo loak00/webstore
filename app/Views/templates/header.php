@@ -69,7 +69,7 @@
 
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">Yhteystiedot</a>
+              <a class="nav-link" href="<?= site_url('yhteystiedot/index'); ?>">Yhteystiedot</a>
             </li>
             <li class="nav-item">
               <a id="kori" class="nav-link" href="<?= site_url('ostoskori/index'); ?>">
