@@ -19,9 +19,6 @@
 <body>
   <div class="container-fluid">
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-      <div class="overlay">
-        <p class="logo logo_font">Cippoi & Cuppei</p>
-      </div>
       <div id="myCarousel" class="carousel slide">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -34,6 +31,10 @@
             <img class="d-block w-100" src="http://placehold.it/900x350&text=3rd" height="250px" alt="Third slide">
           </div>
         </div>
+      </div>
+
+      <div class="overlay">
+        <h1 class="logo logo_font">Cippoi & Cuppei</h1>
       </div>
 
       <nav class="navbar navbar-expand-lg navbar-dark">

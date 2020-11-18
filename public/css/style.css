@@ -17,14 +17,15 @@ body {
 }
 
 .logo_font {
-  font-size: 6rem;
+  /* font-size: 5rem; */
+  font-size: calc(3vw + 5vh);
 }
 
 .overlay { 
   color:#fff;
   position:absolute;
   z-index:2;
-  top:18%;
+  top:25%;
   left:0;
   width:100%;
   text-align:center;
