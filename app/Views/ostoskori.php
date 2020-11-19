@@ -11,6 +11,7 @@
                 <td>Tähän tulee alekkain kunkin tuotteen määrät</td>         
             </tr>
         </table>
+        <button class="btn btn-danger tyhjenna">Tyhjennä</button>
         <button class="bnt btn-primary maksa">Siirry maksamiseen</button>
         </form>
     </div>

@@ -20,10 +20,19 @@ class Ostoskori extends BaseController
   }
 
 	public function index()
-	{
-        $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
-        echo view('templates/header', $data);
-		echo view('ostoskori.php');
-		echo view('templates/footer');
+	  {
+      $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
+      echo view('templates/header', $data);
+		  echo view('ostoskori.php');
+		  echo view('templates/footer');
     }
+
+    
+    public function lisaa($tuote_id) 
+    {
+      $this->ostoskoriModel->lisaa($tuote_id); // istuntomuuttuja asetettu jo modelissa, ei tarvi enää tässä
+      return redirect()->to(site_url('kauppa/tuote/' . $tuote_id)); // palataan takaisin samalle tuote-sivulle
+    }
+
+    
 }
