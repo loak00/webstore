@@ -88,6 +88,6 @@
       </nav>
     </div>
     <!-- Tulostaa istuntomuuttujan debugaamista varten -->
-    <!-- <?= print_r($_SESSION); ?> -->
+    <!-- <?= print_r($_SESSION/* ['kori'] */); ?> -->
 
     <div class="container">

@@ -22,8 +22,9 @@ class Ostoskori extends BaseController
 	public function index()
 	  {
       $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
+      $data['tuotteet'] = $this->tuoteModel->haeTuotteet($_SESSION['kori']);
       echo view('templates/header', $data);
-		  echo view('ostoskori.php');
+		  echo view('ostoskori.php', $data);
 		  echo view('templates/footer');
     }
 

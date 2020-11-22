@@ -4,12 +4,13 @@
         <form method="post" action="<?= site_url('Home/index'); ?>">
         <table>
             <tr>
-                <td>Tilaamasi tuotteet:</td>
+                <th>Tilaamasi tuotteet:</th>
             </tr>
+            <?php foreach ($tuotteet as $tuote) : ?>
             <tr>
-                <td>Tähän tulee alekkain tilatut tuotteet</td>               
-                <td>Tähän tulee alekkain kunkin tuotteen määrät</td>         
+                <td><?= $tuote['nimi'] ?></td>      
             </tr>
+            <?php endforeach; ?>
         </table>
         <button class="btn btn-danger tyhjenna">Tyhjennä</button>
         <button class="bnt btn-primary maksa">Siirry maksamiseen</button>
