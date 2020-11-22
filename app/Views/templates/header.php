@@ -18,76 +18,79 @@
 
 <body>
   <div class="container-fluid">
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-      <div id="myCarousel" class="carousel slide">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="http://placehold.it/900x350&text=1st" height="250px" alt="First slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="http://placehold.it/900x350&text=2nd" height="250px" alt="Second slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="http://placehold.it/900x350&text=3rd" height="250px" alt="Third slide">
-          </div>
+    <div class="carousel slide" data-ride="carousel" data-interval="10000">
+      <div class="carousel-inner" role="listbox">
+
+        <div class="carousel-item active header-carousel" style="background-image:url(<?= base_url('img/w1.jpg') ?>); ">
+          <div class="black-overlay"></div>
         </div>
-      </div>
 
-      <div class="overlay">
-        <h1 class="logo logo_font">Cippoi & Cuppei</h1>
-      </div>
-
-      <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand logo" href="<?= site_url('Home/index') ?>">Cippoi & Cuppei</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Tuotteet
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <?php foreach ($tuoteryhmat as $tuoteryhma) : ?>
-                  <a class="dropdown-item" href="<?= site_url('kauppa/index/' . $tuoteryhma['id']) ?>"><?= $tuoteryhma['nimi'] ?></a>
-                <?php endforeach; ?>
-              </div>
-            </li>
-          </ul>
-
-          <!-- Lisätty pohjaa mahdolliselle etsintämahdollisuudelle -->
-          <form class="mx-2 my-auto d-inline w-50">
-            <div class="input-group">
-              <input type="text" class="form-control border border-right-0" placeholder="Etsi tuotteista...">
-              <span class="input-group-append">
-                <button class="btn btn-outline-light border border-left-0" type="button">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-          </form>
-
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="<?= site_url('yhteystiedot/index'); ?>">Yhteystiedot</a>
-            </li>
-            <li class="nav-item">
-              <a id="kori" class="nav-link" href="<?= site_url('ostoskori/index'); ?>">
-                <i class="fas fa-shopping-cart">
-                </i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a id="login" class="nav-link" href="<?= site_url('login/index'); ?>">
-                Kirjaudu
-              </a>
-            </li>
-          </ul>
+        <div class="carousel-item header-carousel" style="background-image:url(<?= base_url('img/w2.jpg') ?>); ">
+          <div class="black-overlay"></div>
         </div>
-      </nav>
+
+        <div class="carousel-item header-carousel" style="background-image:url(<?= base_url('img/w3.jpg') ?>); ">
+          <div class="black-overlay"></div>
+        </div>
+
+      </div>
     </div>
-    <!-- Tulostaa istuntomuuttujan debugaamista varten -->
-    <!-- <?= print_r($_SESSION/* ['kori'] */); ?> -->
 
-    <div class="container">
+    <div class="logo-overlay">
+      <h1 class="logo logo_font">Cippoi & Cuppei</h1>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand logo" href="<?= site_url('Home/index') ?>">Cippoi & Cuppei</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Tuotteet
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <?php foreach ($tuoteryhmat as $tuoteryhma) : ?>
+                <a class="dropdown-item" href="<?= site_url('kauppa/index/' . $tuoteryhma['id']) ?>"><?= $tuoteryhma['nimi'] ?></a>
+              <?php endforeach; ?>
+            </div>
+          </li>
+        </ul>
+
+        <!-- Lisätty pohjaa mahdolliselle searchille -->
+        <form class="mx-2 my-auto d-inline w-50">
+          <div class="input-group">
+            <input type="text" class="form-control border border-right-0" placeholder="Etsi tuotteista...">
+            <span class="input-group-append">
+              <button class="btn btn-outline-light border border-left-0" type="button">
+                <i class="fa fa-search"></i>
+              </button>
+            </span>
+          </div>
+        </form>
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="<?= site_url('yhteystiedot/index'); ?>">Yhteystiedot</a>
+          </li>
+          <li class="nav-item">
+            <a id="login" class="nav-link" href="<?= site_url('login/index'); ?>">
+              Kirjaudu
+            </a>
+          </li>
+          <li class="nav-item">
+            <a id="kori" class="nav-link" href="<?= site_url('ostoskori/index'); ?>">
+              <i class="fas fa-shopping-cart">
+              </i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- Tulostaa istuntomuuttujan debugaamista varten -->
+  <!-- <?= print_r($_SESSION/* ['kori'] */); ?> -->
+
+  <div class="container">
