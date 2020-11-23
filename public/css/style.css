@@ -6,6 +6,8 @@ BG: #F5F5F5
 
 body {
   background-color: #f5f5f5;
+  max-width: 1920px; /* Tämän voi tarvittaessa poistaa*/
+  margin: 0 auto; /* Tämän voi tarvittaessa poistaa*/
 }
 
 .navbar {
@@ -22,13 +24,14 @@ body {
   font-family: 'Pacifico', cursive;
   font-size: calc(1vw + 0.75vh);
   color: #f5f5f5;
+  margin-top: -1.5%;
 }
 
 .logo-overlay { 
   color:#fff;
   position:absolute;
   z-index:2;
-  top:4.75%;
+  top:4.5%;
   left:0;
   width:100%;
   text-align:center;
