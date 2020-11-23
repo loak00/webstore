@@ -12,41 +12,46 @@
   <link rel="stylesheet" href="<?= base_url('/css/style.css'); ?>">
   <!-- link rel="preconnect" href="https://fonts.gstatic.com" -->
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <title>Cippoi & Cuppei</title>
 </head>
 <!-- Tee bootstrap-asettelu oikein ja paljon muuta -->
 
 <body>
   <div class="container-fluid">
-    <div class="carousel slide" data-ride="carousel" data-interval="10000">
-      <div class="carousel-inner" role="listbox">
+    <a href="<?= site_url('Home/index') ?>">
+      <div class="carousel slide" data-ride="carousel" data-interval="10000">
+        <div class="carousel-inner" role="listbox">
 
-        <div class="carousel-item active header-carousel" style="background-image:url(<?= base_url('img/w1.jpg') ?>); ">
-          <div class="black-overlay"></div>
+          <div class="carousel-item active header-carousel" style="background-image:url(<?= base_url('img/w1.jpg') ?>); ">
+            <div class="black-overlay"></div>
+          </div>
+
+          <div class="carousel-item header-carousel" style="background-image:url(<?= base_url('img/w2.jpg') ?>); ">
+            <div class="black-overlay"></div>
+          </div>
+
+          <div class="carousel-item header-carousel" style="background-image:url(<?= base_url('img/w3.jpg') ?>); ">
+            <div class="black-overlay"></div>
+          </div>
+
         </div>
-
-        <div class="carousel-item header-carousel" style="background-image:url(<?= base_url('img/w2.jpg') ?>); ">
-          <div class="black-overlay"></div>
-        </div>
-
-        <div class="carousel-item header-carousel" style="background-image:url(<?= base_url('img/w3.jpg') ?>); ">
-          <div class="black-overlay"></div>
-        </div>
-
       </div>
-    </div>
 
-    <div class="logo-overlay">
-      <h1 class="logo logo_font">Cippoi & Cuppei</h1>
-    </div>
+      <div class="logo-overlay">
+        <h1 class="logo">Cippoi & Cuppei</h1>
+        <p class="message">est. 2020</p>
+      </div>
+    </a>
 
     <nav class="navbar navbar-expand-lg navbar-dark">
-      <a class="navbar-brand logo" href="<?= site_url('Home/index') ?>">Cippoi & Cuppei</a>
+      <a class="navbar-brand ml-2" href="<?= site_url('Home/index') ?>"><i class="fas fa-home"></i></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Tuotteet

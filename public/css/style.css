@@ -14,10 +14,14 @@ body {
 
 .logo {
   font-family: "Amatic SC", cursive;
+  font-size: calc(3vw + 5vh);
+  color: #f5f5f5;
 }
 
-.logo_font {
-  font-size: calc(3vw + 5vh);
+.message {
+  font-family: 'Pacifico', cursive;
+  font-size: calc(1vw + 0.75vh);
+  color: #f5f5f5;
 }
 
 .logo-overlay { 
