@@ -1,11 +1,10 @@
-    </div>
     <div class="container-fluid">
-    <footer class="py-5">
-      <div>
-        <p class="m-0 text-center text-muted">Habanerot 2020</p>
-      </div>
-      <!-- /.container -->
-    </footer>
+      <footer class="py-5">
+        <div>
+          <p class="m-0 text-center text-muted">Habanerot 2020</p>
+        </div>
+        <!-- /.container -->
+      </footer>
     </div>
     <!-- Optional JavaScript; choose one of the two! -->
 
