@@ -38,5 +38,6 @@ class OstoskoriModel extends Model
   public function tyhjenna()
   {
     $_SESSION['kori'] = null;
+    $_SESSION['kori'] = array();
   }
 }

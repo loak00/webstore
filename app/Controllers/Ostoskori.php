@@ -35,5 +35,11 @@ class Ostoskori extends BaseController
       return redirect()->to(site_url('kauppa/tuote/' . $tuote_id)); // palataan takaisin samalle tuote-sivulle
     }
 
-    
+    /**
+	 * Tyhjentää ostoskorin.
+	 */
+  public function tyhjenna() {
+		$this->ostoskoriModel->tyhjenna();
+    return redirect()->to(site_url('ostoskori/index'));		
+	}    
 }
