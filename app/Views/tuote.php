@@ -1,7 +1,7 @@
 <form method="post" action="<?= site_url('ostoskori/lisaa/' . $tuote['id']); ?>">
   <div class="row">
     <div class="col-md-6">
-      <img class="img-fluid" src="<?= base_url('img/' . $tuote['kuva']) ?>" alt="Kuppi 1">
+      <img class="img-fluid" src="<?= base_url('img/' . $tuote['kuva']) ?>"  alt="<?=$tuote['kuvan_kuvaus']?>">
     </div>
     <div class="col-md-4">
       <p><?= $tuote['nimi']; ?></p>

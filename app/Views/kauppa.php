@@ -8,7 +8,7 @@
                <?= $tuote['nimi'] ?>
              </h4>
              <h5><?= $tuote['hinta'] ?> €</h5>
-             <img class="img-fluid" src="<?= base_url('img/' . $tuote['kuva'])?>"></img>
+             <img class="img-fluid" src="<?= base_url('img/' . $tuote['kuva'])?>" alt="<?=$tuote['kuvan_kuvaus']?>"></img>
              <p><?= $tuote['kuvaus'] ?></p>
            </div>
          </a>
