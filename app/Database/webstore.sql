@@ -38,7 +38,10 @@ insert into tuoteryhma (id, nimi) values (4, 'Ruokailuvälineet');
 
 
 insert into tuote (nimi,kuvaus,hinta,kuva,kuvan_kuvaus,varastomaara,tuoteryhma_id) 
-values ('Nalle Puh Ihaa','Masentunut aasi',20.50,'1.png','Muki: Nalle Puh - Ihaa',10,1);
+values ('Nalle Puh Ihaa','Masentunut aasi',20.50,'k1.png','Muki: Nalle Puh - Ihaa',10,1);
+
+insert into tuote (nimi,kuvaus,hinta,kuva,kuvan_kuvaus,varastomaara,tuoteryhma_id) 
+values ('Nalle Puh kuppi' ,'Nalle Puh kuppi',20.50,'k2.png','Muki: Nalle Puh',10,1);
 
 insert into tuote (nimi,kuvaus,hinta,kuva,kuvan_kuvaus,varastomaara,tuoteryhma_id) 
 values ('Lautanen','Tämä on lautanen',6680,NULL,NULL,100,2);
