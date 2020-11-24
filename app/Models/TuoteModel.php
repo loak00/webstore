@@ -25,7 +25,7 @@ class TuoteModel extends Model {
     $tuotteet = array();
     foreach ($idt as $id) {
       $this->table('tuote');
-      $this->select('id, nimi, hinta');
+      $this->select('id, nimi, hinta,kuva,kuvan_kuvaus');
       $this->where('id', $id);
       $kysely = $this->get();
       $tuote = $kysely->getRowArray();
