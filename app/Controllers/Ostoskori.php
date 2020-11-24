@@ -28,10 +28,10 @@ class Ostoskori extends BaseController
 		  echo view('templates/footer');
     }
 
-    public function lisaa2($tuote_id) 
+    public function lisaa2($tuote_id, $tuoteryhma_id) 
     {
       $this->ostoskoriModel->lisaa($tuote_id); // istuntomuuttuja asetettu jo modelissa, ei tarvi enää tässä
-      return redirect()->to(site_url('kauppa/index/' . $tuote_id));
+      return redirect()->to(site_url('kauppa/index/' . $tuoteryhma_id));
     }
 
     public function lisaa($tuote_id) 
