@@ -29,6 +29,11 @@ create table tuote (
   on delete restrict
 );
 
+create table uutiskirjeentilaajat (
+  id int primary key auto_increment,
+  email varchar(80) unique not null
+);
+
 
 insert into tuoteryhma (id, nimi) values (1, 'Kupit');
 insert into tuoteryhma (id, nimi) values (2, 'Lautaset');

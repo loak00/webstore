@@ -35,6 +35,7 @@ $routes->get('/admin/index', 'Admin::index');
 $routes->get('login', 'Login::index');
 $routes->get('register','Login::register');
 $routes->get('check','Login::check');
+$routes->get('yhteystiedot','Yhteystiedot::index');
 /**
  * --------------------------------------------------------------------
  * Additional Routing
