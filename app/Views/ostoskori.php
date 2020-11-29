@@ -13,7 +13,9 @@
                 <?php endforeach; ?>
             </table>
         <!-- </form> -->
-        <a class="btn btn-danger tyhjenna" id="tyhjenna" href="<?= site_url('ostoskori/tyhjenna'); ?>">
+        <a class="btn btn-danger tyhjenna" id="tyhjenna" href="<?= site_url('ostoskori/tyhjenna'); ?>"
+            onclick="return confirm(
+                'Haluatko varmasti tyhjentää ostoskorin?')">
             <i class="fas fa-trash"></i>
         </a>
         <a class="btn btn-primary kassalle" id="kassalle" href="<?= site_url('ostoskori/siirryTilaamaan'); ?>">

@@ -26,21 +26,19 @@ class Yhteystiedot extends BaseController
     echo view('templates/header', $data);
     echo view('yhteystiedot.php');
     echo view('templates/footer');
-  
   }
 
   public function uutiskirje()
   {
+    $this->uutiskirjeModel->save([
+      'email' => $this->request->getVar('mail')
+    ]);
 
-          $this->uutiskirjeModel->save([
-              'email' => $this->request->getVar('mail')
-          ]);
-
-          // echo '<script>alert("Uutiskirje tilattu onnistuneesti, kiitos!")</script>'; 
-          return redirect('yhteystiedot');
-
-      }
+    // echo '<script>alert("Uutiskirje tilattu onnistuneesti, kiitos!")</script>';
+    /* return redirect('yhteystiedot'); */
+    echo "<script>";
+    echo " alert('Uutiskirje tilattu onnistuneesti, kiitos!');      
+        window.location.href='" . site_url('yhteystiedot') . "';
+      </script>";
   }
-
-
-
+}
