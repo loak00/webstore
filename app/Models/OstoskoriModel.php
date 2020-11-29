@@ -25,6 +25,13 @@ class OstoskoriModel extends Model
     return $this->tuoteModel->haeTuote($_SESSION['kori']);
   }
 
+  /**
+   * Metodi näyttää ostoskorissa olevien tuotteiden lukumäärän.
+   */
+  //public function ostoskori_lkm() {
+  //  return count($_SESSION['kori']);
+  //}
+
 
 
   /**
