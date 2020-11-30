@@ -29,9 +29,16 @@
         ja tilaamalla uutiskirjeen saat etuna 10% alennukseen oikeuttavan alennuskoodin! Tarkemmat ohjeet saat sähköpostiisi!</p>
     </div>
 
-    <div class="container">
 
-      <input type="text" placeholder="Sähköpostiosoitteesi" name="mail" required>
+  <div class="col-md-4">
+    <form method="post" action="<?= site_url('yhteystiedot/uutiskirje/'); ?>">
+      <div class="container">
+        <p>
+          <h4>Tilaa uutiskirje</h4>
+        </p>
+        <p>Saat sähköpostiisi kuukausittain postin uutuustuotteistamme ja verrattomista erikoisalennuksista! Täyttämällä yhteystietosi
+          ja tilaamalla uutiskirjeen saat etuna 10% alennukseen oikeuttavan alennuskoodin! Tarkemmat ohjeet saat sähköpostiisi!</p>
+      </div>
 
       <button class="bnt btn-primary tilaa">Tilaa tästä</button>
     </div>
