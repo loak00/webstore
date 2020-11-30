@@ -39,6 +39,15 @@ class Kauppa extends BaseController
 		echo view('templates/footer');
 	}
 
+	public function kaikki()
+	{
+		$data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
+		$data['tuotteet'] = $this->tuoteModel->haeKaikkiTuotteet();
+		echo view('templates/header', $data);
+		echo view('kauppa');
+		echo view('templates/footer');
+	}
+
 	//--------------------------------------------------------------------
 
 }

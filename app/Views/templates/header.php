@@ -60,6 +60,8 @@
               <?php foreach ($tuoteryhmat as $tuoteryhma) : ?>
                 <a class="dropdown-item" href="<?= site_url('kauppa/index/' . $tuoteryhma['id']) ?>"><?= $tuoteryhma['nimi'] ?></a>
               <?php endforeach; ?>
+              <hr>
+              <a class="dropdown-item" href="<?= site_url('kauppa/kaikki')?>" > Näytä kaikki tuotteet</a>
             </div>
           </li>
         </ul>
@@ -82,12 +84,13 @@
           </li>
           <li class="nav-item">
             <a id="login" class="nav-link" href="<?= site_url('login/index'); ?>">
+            <i class="fas fa-user pl-3"></i>
               Kirjaudu
             </a>
           </li>
           <li class="nav-item">
             <a id="kori" class="nav-link" href="<?= site_url('ostoskori/index'); ?>">
-              <i class="fas fa-shopping-cart">
+              <i class="fas fa-shopping-cart pl-3">
               </i>
             </a>
           </li>
