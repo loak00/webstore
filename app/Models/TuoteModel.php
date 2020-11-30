@@ -41,7 +41,7 @@ class TuoteModel extends Model {
    * @param int Satunnaisten tuotteiden lukumäärä
    * @return Array Kolme satunnaista tuotetta taulukossa.
    */
-  public function haeSatunnaisestiTuotetta($i) {
+  public function haeSatunnaisestiTuoteita($i) {
     $arvotut = array(); // Taulukko satunnaisesti arvotuille tuotteilla.
     $idt = array(); // Idt taulukkon tallennetaan jo arvottujen tuotteiden idt, jotta voidaan tarkastaa
                     // in_array-metodilla, onko tuote jo arvottu.

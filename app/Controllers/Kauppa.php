@@ -23,7 +23,7 @@ class Kauppa extends BaseController
 	public function index($tuoteryhma_id)
 	{
 		$data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
-		$data['tuotteet'] = $this->tuoteModel->haeSatunnaisestiTuotetta(4);
+		$data['tuotteet'] = $this->tuoteModel->haeTuoteRyhmalla($tuoteryhma_id);
 		echo view('templates/header', $data);
 		echo view('kauppa');
 		echo view('templates/footer');
