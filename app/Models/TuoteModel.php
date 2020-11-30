@@ -5,6 +5,10 @@ use CodeIgniter\Model;
 class TuoteModel extends Model {
   protected $table = 'tuote';
 
+  public function haeKaikkiTuotteet() {
+    return $this->findAll();
+ }
+
 
   public function haeTuoteryhmalla($tuoteryhma_id) {
      return $this->getWhere(['tuoteryhma_id' => $tuoteryhma_id])->getResultArray();
