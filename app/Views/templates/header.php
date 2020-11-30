@@ -91,6 +91,7 @@
           <li class="nav-item">
             <a id="kori" class="nav-link" href="<?= site_url('ostoskori/index'); ?>">
               <i class="fas fa-shopping-cart pl-3">
+              <span><?= $ostoskori_lkm?></span>
               </i>
             </a>
           </li>

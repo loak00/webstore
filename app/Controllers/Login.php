@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\LoginModel;
 use App\Models\TuoteryhmaModel;
+use App\Models\OstoskoriModel;
 
 class Login extends BaseController
 {
@@ -14,11 +15,13 @@ class Login extends BaseController
     {
         $this->tuoteryhmaModel = new TuoteRyhmaModel();
         $this->loginModel = new LoginModel();
+        $this->ostoskoriModel = new OstoskoriModel();
     }
 
     public function index()
     {
         $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
+        $data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
         echo view('templates/header', $data);
         echo view('login/login', $data);
         echo view('templates/footer', $data);
@@ -34,6 +37,7 @@ class Login extends BaseController
             'confirmedpassword' => 'required|min_length[8]|max_length[30]|matches[password]',
         ])) {
             $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
+            $data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
             echo view('templates/header', $data);
             echo view('login/register', $data);
             echo view('templates/footer', $data);
@@ -56,6 +60,7 @@ class Login extends BaseController
             'password' => 'required|min_length[8]|max_length[30]',
         ])){
             $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
+            $data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
             echo view('templates/header', $data);
             echo view('login/login');
             echo view('templates/footer');

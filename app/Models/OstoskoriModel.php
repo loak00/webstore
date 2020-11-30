@@ -21,18 +21,18 @@ class OstoskoriModel extends Model
   /**
    * Metodi tulostaa ostokorin sisällön
    */
-  public function ostokori() {
+  public function ostokori()
+  {
     return $this->tuoteModel->haeTuote($_SESSION['kori']);
   }
 
   /**
    * Metodi näyttää ostoskorissa olevien tuotteiden lukumäärän.
    */
-  //public function ostoskori_lkm() {
-  //  return count($_SESSION['kori']);
-  //}
-
-
+  public function ostoskori_lkm()
+  {
+    return count($_SESSION['kori']);
+  }
 
   /**
    * Metodi lisää tuotteen ostoskoriin.
