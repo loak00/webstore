@@ -38,7 +38,7 @@
   </form>
 </div>
 
-<div class="row text-center">
+<div class="row text-center col-12">
   <div class="col-md-4">
     <a href="https://www.facebook.com/"> <i class="fab fa-facebook-square fa-4x"></i></a>
   </div>
