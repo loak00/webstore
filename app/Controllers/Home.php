@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\TuoteryhmaModel;
 use App\Models\TuoteModel;
 use App\Models\LoginModel;
+/* use App\Models\OstoskoriModel; */
 
 class Home extends BaseController
 {
@@ -17,6 +18,7 @@ class Home extends BaseController
 		$this->tuoteryhmaModel = new TuoteryhmaModel();
 		$this->tuoteModel = new TuoteModel();
 		$this->loginModel = new LoginModel();
+		/* $this->ostoskoriModel = new OstoskoriModel(); */
 	}
 
 
@@ -24,8 +26,10 @@ class Home extends BaseController
 	{
 		$data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
 		$data['tuotteet'] = $this->tuoteModel->haeSatunnaisestiTuoteita(4);
+		/* $data['ostoskori_lkm'] = $this->ostoskoriModel->lukumaara(); */
 		echo view('templates/header', $data);
 		echo view('etusivu', $data);
+		echo view('kauppa', $data);
 		echo view('templates/footer');
 	}
 

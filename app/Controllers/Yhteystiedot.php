@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\TuoteryhmaModel;
 use App\Models\LoginModel;
 use App\Models\UutiskirjeModel;
+use App\Models\OstoskoriModel;
 
 
 class Yhteystiedot extends BaseController
@@ -18,7 +19,8 @@ class Yhteystiedot extends BaseController
     $this->tuoteryhmaModel = new TuoteRyhmaModel();
     $this->loginModel = new LoginModel();
     $this->uutiskirjeModel = new UutiskirjeModel();
-  }
+    $this->ostoskoriModel = new OstoskoriModel();
+	}
 
   public function index()
   {
