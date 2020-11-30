@@ -4,7 +4,7 @@
             <div class="list-group pt-4">
                 <hr>
                 <?php foreach ($tuoteryhmat as $tuoteryhma) : ?>
-                    <a class="list-group-item" href="<?= site_url('kauppa/index/' . $tuoteryhma['id']) ?>"><?= $tuoteryhma['nimi'] ?></a>
+                    <a class="list-group-item" href="<?= site_url('kauppa/index/' . $tuoteryhma['id']) ?>"><?= $tuoteryhma['nimi'] ." &nbsp; ". $tuoteryhma['kuvake']?></a>
                 <?php endforeach; ?>
                 <a class="list-group-item" href="<?= site_url('kauppa/kaikki') ?>"> Kaikki tuotteet <i class="fas fa-search text-muted ml-2"></i></a>
             </div>

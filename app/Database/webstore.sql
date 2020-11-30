@@ -12,7 +12,8 @@ create table user (
 
 create table tuoteryhma (
   id int primary key auto_increment,
-  nimi varchar(50) unique not null
+  nimi varchar(50) unique not null,
+  kuvake varchar(255) 
 );
 
 create table tuote (
@@ -35,10 +36,10 @@ create table uutiskirjeentilaajat (
 );
 
 
-insert into tuoteryhma (id, nimi) values (1, 'Kupit');
-insert into tuoteryhma (id, nimi) values (2, 'Lautaset');
-insert into tuoteryhma (id, nimi) values (3, 'Taidelasi');
-insert into tuoteryhma (id, nimi) values (4, 'Ruokailuvälineet');
+insert into tuoteryhma (id, nimi, kuvake) values (1, 'Kupit', '<i class="fas fa-coffee text-muted"></i>');
+insert into tuoteryhma (id, nimi, kuvake) values (2, 'Lautaset', '<i class="fas fa-bullseye text-muted"></i>');
+insert into tuoteryhma (id, nimi, kuvake) values (3, 'Taidelasi', '<i class="fas fa-glass-martini-alt text-muted"></i>');
+insert into tuoteryhma (id, nimi, kuvake) values (4, 'Ruokailuvälineet', '<i class="fas fa-utensils text-muted"></i>');
 
 
 
