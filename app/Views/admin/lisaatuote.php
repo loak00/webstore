@@ -22,7 +22,7 @@
     <?php 
     // Jos tuotteella on kuva, tulostetaan näkyviin lomakkeelle.
     if ($kuva !== '') {
-      $polku = base_url('img/' . $kuva);
+      $polku = base_url('img/thumb_' . $kuva);
       print "<img src='" .$polku  . "'/>";
     }
     ?>

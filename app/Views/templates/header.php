@@ -82,11 +82,11 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="<?= site_url('yhteystiedot/index'); ?>">Yhteystiedot</a>
-          </li>          
+          </li>
           <li class="nav-item">
             <a id="login" class="nav-link" href="<?= site_url('login/' . $login[0]); ?>">
-            <i class="fas fa-user pl-3"></i>
-            <?= $login[1]?>
+              <i class="fas fa-user pl-3"></i>
+              <?= $login[1] ?>
             </a>
           </li>
           <li class="nav-item">

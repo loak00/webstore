@@ -42,6 +42,22 @@ class OstoskoriModel extends Model
     array_push($_SESSION['kori'], $tuote_id);
   }
 
+  /**
+   * Poistaa tuotteen ostoskorista.
+   * 
+   * @param int $tuote_id Poistettavan tuotteen id.
+   */
+  public function poista($tuote_id) { 
+    // Käydään ostoskori läpi ja jos id:llä löytyy tuote, poistetaan se korista.
+    for ($i = count($_SESSION['kori'])-1; $i >= 0;$i--) {
+      $tuote = $_SESSION['kori'][$i];
+      if ($tuote === $tuote_id) {
+        array_splice($_SESSION['kori'], $i, 1);
+        return;
+      }
+    }
+  }
+
   public function tyhjenna()
   {
     $_SESSION['kori'] = null;

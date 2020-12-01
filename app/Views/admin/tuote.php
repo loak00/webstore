@@ -25,6 +25,7 @@
 <table class="table">
 <?php foreach($tuotteet as $tuote): ?>
   <tr>
+    <td><img class="img-fluid" style="width: 100px; height: 100px;" src="<?= base_url('img/thumb_' . $tuote['kuva']) ?>" alt="<?= $tuote['kuvan_kuvaus'] ?>"></img></td>
     <td><?= $tuote['nimi']?></td>
     <td><?= $tuote['hinta']?> €</td>
     <td><?= $tuote['varastomaara']?></td>
