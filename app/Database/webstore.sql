@@ -35,14 +35,14 @@ create table uutiskirjeentilaajat (
   email varchar(80) unique not null
 );
 
-insert into user (id, username, password, firstname, lastname) values (1, 'Testikäyttäjä', '$2y$10$u6QxuTzaPADEPVM2XUJtle.syhDpTmTCG4dFI3E3TlEI5jcp9MpOS', 'Teppo','Testikäyttäjä');
-
 create table viesti (
     id int primary key auto_increment,
     email varchar(100) not null,
     viesti varchar(500),
     saved timestamp default current_timestamp
 );
+
+insert into user (id, username, password, firstname, lastname) values (1, 'Testikäyttäjä', '$2y$10$u6QxuTzaPADEPVM2XUJtle.syhDpTmTCG4dFI3E3TlEI5jcp9MpOS', 'Teppo','Testikäyttäjä');
 
 insert into tuoteryhma (id, nimi, kuvake) values (1, 'Kupit', '<i class="fas fa-coffee text-muted"></i>');
 insert into tuoteryhma (id, nimi, kuvake) values (2, 'Lautaset', '<i class="fas fa-bullseye text-muted"></i>');

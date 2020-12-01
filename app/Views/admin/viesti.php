@@ -5,7 +5,9 @@
   <tr>
     <td><?= $viesti['email']?></td>
     <td><?= $viesti['viesti']?></td>
-    <td><?= anchor('admin/poista_viesti/' . $viesti['id'],'Poista')?></td>
+    <td><a href="<?= site_url('admin/poista_viesti/' . $viesti['id'])?>"
+            onclick="return confirm('Haluatko varmasti poistaa viestin?')">            
+       Poista <i class="fas fa-trash"></i></a></td>
   </tr>
 <?php endforeach;?>
 </table>
