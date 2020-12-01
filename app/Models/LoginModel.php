@@ -32,12 +32,14 @@ class LoginModel extends Model
 
     public function kirjautunut()
     {
-        return "Kirjaudu";
+        if (isset($_SESSION['user'])) {
+            return array('logout','Kirjaudu ulos');
+        }        
+        return array('','Kirjaudu sisään');
     }
 
     public function logout()
     {
         $_SESSION['user'] = null;
-        $_SESSION['user'] = array();
     }
 }

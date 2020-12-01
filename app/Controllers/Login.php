@@ -20,6 +20,11 @@ class Login extends BaseController
 
     public function index()
     {
+        // logged user is redirected to main page
+        if (isset($_SESSION['user'])) {
+            return redirect()->to(site_url('/'));;
+        }
+        
         $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
         $data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
         $data['login'] = $this->loginModel->kirjautunut();
@@ -31,6 +36,10 @@ class Login extends BaseController
     public function registeration()
     {
         // $model = new LoginModel();
+        // logged user is redirected to main page
+        if (isset($_SESSION['user'])) {
+            return redirect()->to(site_url('/'));;
+        }
 
         if (!$this->validate([
             'username' => 'required|min_length[8]|max_length[30]',

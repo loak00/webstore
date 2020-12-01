@@ -48,12 +48,12 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
 
       <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarSupportedContent">
-        
-      <a class="navbar-brand" href="<?= site_url('Home/index') ?>"><i class="fas fa-home"></i></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-        
+
+        <a class="navbar-brand" href="<?= site_url('Home/index') ?>"><i class="fas fa-home"></i></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
         <ul class="navbar-nav">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -68,7 +68,7 @@
             </div>
           </li>
         </ul>
-          <form class="mx-2 w-25">
+        <form class="mx-2 w-25">
           <div class="input-group">
             <input type="text" class="form-control border border-right-0" placeholder="Etsi tuotteista...">
             <span class="input-group-append">
@@ -82,16 +82,11 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="<?= site_url('yhteystiedot/index'); ?>">Yhteystiedot</a>
-          </li>
+          </li>          
           <li class="nav-item">
-            <a id="login" class="nav-link" href="<?= site_url('login/index'); ?>">
-              <i class="fas fa-user pl-3"></i>
-              <?= $login ?>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a id="login" class="nav-link" href="<?= site_url('login/logout'); ?>">
-              Logout
+            <a id="login" class="nav-link" href="<?= site_url('login/' . $login[0]); ?>">
+            <i class="fas fa-user pl-3"></i>
+            <?= $login[1]?>
             </a>
           </li>
           <li class="nav-item">
@@ -106,6 +101,5 @@
     </nav>
   </div>
   <!-- Tulostaa istuntomuuttujan debugaamista varten -->
-  <!--  <?= print_r($_SESSION); ?> -->
-
+  <!-- <?= print_r($_SESSION); ?> -->
   <div class="container">
