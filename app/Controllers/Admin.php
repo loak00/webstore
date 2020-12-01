@@ -4,16 +4,19 @@ namespace App\Controllers;
 
 use App\Models\TuoteryhmaModel;
 use App\Models\LoginModel;
+use App\Models\ViestiModel;
 
 class Admin extends BaseController
 {
   private $tuoteryhmaModel = null;
   private $LoginModel = null;
+  private $viestiModel = null;
 
   function __construct()
   {
     $this->tuoteryhmaModel = new TuoteryhmaModel();
     $this->loginModel = new LoginModel();
+    $this->viestiModel = new ViestiModel();
   }
 
   public function index()
@@ -45,6 +48,21 @@ class Admin extends BaseController
   {
     $this->tuoteryhmaModel->poista($id);
     return redirect('admin/index');
+  }
+
+  public function viestit()
+  {
+    $data['viestit'] = $this->viestiModel->haeViestit();
+    $data['otsikko'] = 'Viestit/Yhteydenotot';
+    echo view('templates/header_admin.php', $data);
+    echo view('admin/viesti.php', $data);
+    echo view('templates/footer.php');
+  }
+
+  public function poista_viesti($id)
+  {
+    $this->viestiModel->poista($id);
+    return redirect('admin/viestit');
   }
 
   //--------------------------------------------------------------------

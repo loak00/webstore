@@ -31,6 +31,9 @@
           <li class="nav-item">
             <a class="nav-link" href="<?=site_url('tilaus/asiakkaat/')?>">Asiakkaat</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?=site_url('admin/viestit/')?>">Viestit</a>
+          </li>
         </ul>  
       </div>
     </nav>  
