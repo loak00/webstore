@@ -6,6 +6,7 @@ use App\Models\TuoteryhmaModel;
 use App\Models\LoginModel;
 use App\Models\UutiskirjeModel;
 use App\Models\OstoskoriModel;
+use App\Models\ViestiModel;
 
 
 class Yhteystiedot extends BaseController
@@ -13,6 +14,7 @@ class Yhteystiedot extends BaseController
   private $tuoteryhmaModel = null;
   private $loginModel = null;
   private $uutiskirjeModel = null;
+  private $viestiModel = null;
 
   public function __construct()
   {
@@ -20,6 +22,7 @@ class Yhteystiedot extends BaseController
     $this->loginModel = new LoginModel();
     $this->uutiskirjeModel = new UutiskirjeModel();
     $this->ostoskoriModel = new OstoskoriModel();
+    $this->viestiModel = new ViestiModel();
 	}
 
   public function index()
@@ -42,6 +45,20 @@ class Yhteystiedot extends BaseController
     /* return redirect('yhteystiedot'); */
     echo "<script>";
     echo " alert('Uutiskirje tilattu onnistuneesti, kiitos!');      
+        window.location.href='" . site_url('yhteystiedot') . "';
+      </script>";
+  }
+  
+  public function viesti()
+  {
+    $this->viestiModel->save([
+      'email' => $this->request->getVar('mail2'),
+      'viesti'=> $this->request->getVar('viesti')
+    ]);
+
+
+    echo "<script>";
+    echo " alert('Kiitos yhteydenottopyynnöstäsi, palataan asiaan!');      
         window.location.href='" . site_url('yhteystiedot') . "';
       </script>";
   }
