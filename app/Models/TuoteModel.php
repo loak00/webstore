@@ -38,6 +38,7 @@ class TuoteModel extends Model {
     }
     return $tuotteet;
   }
+ 
 
   /**
    * Arpoo kolme satunnaista tuotetta (sama tuote ei esiinny useammin taulukossa).
