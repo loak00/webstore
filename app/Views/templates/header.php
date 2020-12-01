@@ -46,12 +46,15 @@
     </a>
 
     <nav class="navbar navbar-expand-lg navbar-dark">
-      <a class="navbar-brand ml-2" href="<?= site_url('Home/index') ?>"><i class="fas fa-home"></i></a>
+
+      <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarSupportedContent">
+        
+      <a class="navbar-brand" href="<?= site_url('Home/index') ?>"><i class="fas fa-home"></i></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
+        
+        <ul class="navbar-nav">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Tuotteet
@@ -65,9 +68,7 @@
             </div>
           </li>
         </ul>
-
-        <!-- Lisätty pohjaa mahdolliselle searchille -->
-        <form class="mx-2 my-auto d-inline w-50">
+          <form class="mx-2 w-25">
           <div class="input-group">
             <input type="text" class="form-control border border-right-0" placeholder="Etsi tuotteista...">
             <span class="input-group-append">
@@ -78,7 +79,7 @@
           </div>
         </form>
 
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="<?= site_url('yhteystiedot/index'); ?>">Yhteystiedot</a>
           </li>
