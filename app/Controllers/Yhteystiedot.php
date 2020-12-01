@@ -26,6 +26,7 @@ class Yhteystiedot extends BaseController
   {
     $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
     $data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
+    $data['login'] = $this->loginModel->kirjautunut();
     echo view('templates/header', $data);
     echo view('yhteystiedot.php');
     echo view('templates/footer');

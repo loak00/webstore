@@ -84,14 +84,19 @@
           </li>
           <li class="nav-item">
             <a id="login" class="nav-link" href="<?= site_url('login/index'); ?>">
-            <i class="fas fa-user pl-3"></i>
-              Kirjaudu
+              <i class="fas fa-user pl-3"></i>
+              <?= $login ?>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a id="login" class="nav-link" href="<?= site_url('login/logout'); ?>">
+              Logout
             </a>
           </li>
           <li class="nav-item">
             <a id="kori" class="nav-link" href="<?= site_url('ostoskori/index'); ?>">
               <i class="fas fa-shopping-cart pl-3">
-              <span><?= $ostoskori_lkm?></span>
+                <span><?= $ostoskori_lkm ?></span>
               </i>
             </a>
           </li>
@@ -100,6 +105,6 @@
     </nav>
   </div>
   <!-- Tulostaa istuntomuuttujan debugaamista varten -->
-  <!-- <?= print_r($_SESSION/* ['kori'] */); ?> -->
+  <!--  <?= print_r($_SESSION); ?> -->
 
   <div class="container">

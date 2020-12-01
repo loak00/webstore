@@ -26,6 +26,7 @@ class Home extends BaseController
 	public function index()
 	{
 		$data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
+		$data['login'] = $this->loginModel->kirjautunut();
 		$data['tuotteet'] = $this->tuoteModel->haeSatunnaisestiTuoteita(4);
 		$data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
 		echo view('templates/header', $data);

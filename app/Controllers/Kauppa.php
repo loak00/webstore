@@ -28,6 +28,7 @@ class Kauppa extends BaseController
 		$data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
 		$data['tuotteet'] = $this->tuoteModel->haeTuoteRyhmalla($tuoteryhma_id);
 		$data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
+		$data['login'] = $this->loginModel->kirjautunut();
 		echo view('templates/header', $data);
 		echo view('kauppa');
 		echo view('templates/footer');
@@ -39,6 +40,7 @@ class Kauppa extends BaseController
 		$data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
 		$data['tuote'] = $this->tuoteModel->haeTuote($tuote_id);
 		$data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
+		$data['login'] = $this->loginModel->kirjautunut();
 		echo view('templates/header', $data);
 		echo view('tuote', $data);
 		echo view('templates/footer');
@@ -49,6 +51,7 @@ class Kauppa extends BaseController
 		$data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
 		$data['tuotteet'] = $this->tuoteModel->haeKaikkiTuotteet();
 		$data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
+		$data['login'] = $this->loginModel->kirjautunut();
 		echo view('templates/header', $data);
 		echo view('kauppa');
 		echo view('templates/footer');

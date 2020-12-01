@@ -22,6 +22,7 @@ class Login extends BaseController
     {
         $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
         $data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
+        $data['login'] = $this->loginModel->kirjautunut();
         echo view('templates/header', $data);
         echo view('login/login', $data);
         echo view('templates/footer', $data);
@@ -38,6 +39,7 @@ class Login extends BaseController
         ])) {
             $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
             $data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
+            $data['login'] = $this->loginModel->kirjautunut();
             echo view('templates/header', $data);
             echo view('login/register', $data);
             echo view('templates/footer', $data);
@@ -61,6 +63,7 @@ class Login extends BaseController
         ])){
             $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
             $data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
+            $data['login'] = $this->loginModel->kirjautunut();
             echo view('templates/header', $data);
             echo view('login/login');
             echo view('templates/footer');
@@ -80,5 +83,8 @@ class Login extends BaseController
         }
     }
 
-    
+    public function logout() {
+		$this->loginModel->logout();
+    return redirect()->to(site_url('/'));		
+  }      
 }

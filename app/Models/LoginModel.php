@@ -23,10 +23,21 @@ class LoginModel extends Model
         // print $this->getLastQuery();
         $row = $query->getRow();
         if ($row) {
-            if (password_verify($password,$row->password)) {
+            if (password_verify($password, $row->password)) {
                 return $row;
             }
         }
         return null;
+    }
+
+    public function kirjautunut()
+    {
+        return "Kirjaudu";
+    }
+
+    public function logout()
+    {
+        $_SESSION['user'] = null;
+        $_SESSION['user'] = array();
     }
 }
