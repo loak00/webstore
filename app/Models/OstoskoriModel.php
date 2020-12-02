@@ -31,6 +31,9 @@ class OstoskoriModel extends Model
    */
   public function ostoskori_lkm()
   {
+    if (count($_SESSION['kori']) < 1){
+      return "";
+    }
     return count($_SESSION['kori']);
   }
 
