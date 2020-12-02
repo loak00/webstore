@@ -85,7 +85,7 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <?= $login[0]; ?>
+              <i class="fas fa-user pl-3"></i><?= " " . $login[0]; ?>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a id="login" class="dropdown-item" href="<?= site_url('login/' . $login[1]); ?>">

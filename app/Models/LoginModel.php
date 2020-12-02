@@ -36,7 +36,7 @@ class LoginModel extends Model
             $username = $_SESSION['user']->username;
             return array($username,'logout', 'Kirjaudu ulos');
         }        
-        return array('<i class="fas fa-user pl-3"></i>','/','Kirjaudu sisään');
+        return array('Kirjautuminen','/','Kirjaudu sisään');
     }
 
     public function logout()
