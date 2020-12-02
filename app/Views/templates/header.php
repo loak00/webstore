@@ -82,12 +82,24 @@
           <li class="nav-item">
             <a class="nav-link" href="<?= site_url('yhteystiedot/index'); ?>">Yhteystiedot</a>
           </li>
+<<<<<<< HEAD
           <li class="nav-item">
             <a id="login" class="nav-link" href="<?= site_url('login/' . $login[0]); ?>">
               <i class="fas fa-user"></i>
               <?= $login[1] ?>
+=======
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-user pl-3"></i><?= " " . $login[0]; ?>
+>>>>>>> f5cb4f8f7b096a5b310854997c2f9146930fdfc5
             </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a id="login" class="dropdown-item" href="<?= site_url('login/' . $login[1]); ?>">
+                <?= $login[2] ?>
+              </a>
+            </div>
           </li>
+
           <li class="nav-item">
             <a id="kori" class="nav-link" href="<?= site_url('ostoskori/index'); ?>">
               <i class="fas fa-shopping-cart">

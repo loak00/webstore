@@ -8,7 +8,7 @@
              <h5 class="card-header"><?= $tuote['hinta'] ?> €</h5>
              <img class="img-fluid" src="<?= base_url('img/thumb_' . $tuote['kuva']) ?>" alt="<?= $tuote['kuvan_kuvaus'] ?>"></img>
              <p class="card-footer text-muted"><?= $tuote['kuvaus'] ?></p>
-             <form method="post" action="<?= site_url('ostoskori/lisaa2/' . $tuote['id'] . "/" . $tuote['tuoteryhma_id']); ?>">
+             <form method="post" action="<?= site_url('ostoskori/lisaa/' . $tuote['id'] . "/" . $tuote['tuoteryhma_id']); ?>">
                <button class="bnt btn-success">Lisää koriin</button>
              </form>
            </div>
