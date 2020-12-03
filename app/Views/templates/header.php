@@ -17,8 +17,8 @@
   <div class="container-fluid">
     
     <a href="<?= site_url('Home/index') ?>">
-      <div class="carousel slide" data-ride="carousel" data-interval="10000">
-        <div class="carousel-inner" role="listbox">
+      <div class="carousel slide carousel-fade" data-ride="carousel" data-interval="10000">
+        <div class="carousel-inner">
           <div class="carousel-item active header-carousel" style="background-image:url(<?= base_url('img/w1.jpg') ?>); ">
             <div class="black-overlay"></div>
           </div>
