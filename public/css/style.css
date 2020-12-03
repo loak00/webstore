@@ -12,6 +12,17 @@ body {
   margin: 0 auto; /* Tämän voi tarvittaessa poistaa*/
 }
 
+.btn-primary,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+  background-image: linear-gradient(#c89666, #12343b);
+  border-color: #c89666;
+}
+.btn-primary:hover {
+  background-image: linear-gradient(#2d545e, #12343b);
+}
+
 .navbar {
   /* background-color: #12343b; */
   background-image: linear-gradient(#12343b, #2d545e);
