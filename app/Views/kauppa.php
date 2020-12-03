@@ -9,7 +9,7 @@
              <img class="img-fluid" src="<?= base_url('img/thumb_' . $tuote['kuva']) ?>" alt="<?= $tuote['kuvan_kuvaus'] ?>"></img>
              <p class="card-footer text-muted"><?= $tuote['kuvaus'] ?></p>
              <form method="post" action="<?= site_url('ostoskori/lisaa/' . $tuote['id'] . "/" . $tuote['tuoteryhma_id']); ?>">
-               <button class="bnt btn-primary">Lisää koriin</button>
+               <button class="bnt btn-primary shadow rounded">Lisää koriin</button>
              </form>
            </div>
          </a>

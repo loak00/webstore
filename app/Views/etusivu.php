@@ -35,8 +35,6 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.col-lg-9 -->
     </div>
-    <!-- /.row -->
+   

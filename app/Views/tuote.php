@@ -7,7 +7,7 @@
       <p><?= $tuote['nimi']; ?></p>
       <p><?= $tuote['kuvaus']; ?></p>
       <p class="hinta"><?= $tuote['hinta']; ?> €</p>
-      <button class="bnt btn-primary osta">Osta</button>
+      <button class="bnt btn-primary shadow rounded osta">Osta</button>
     </div>
   </div>
 </form>

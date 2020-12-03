@@ -21,7 +21,7 @@
                 'Haluatko varmasti tyhjentää ostoskorin?')">
             <i class="fas fa-trash"></i>
         </a>
-        <a class="btn btn-primary kassalle" id="kassalle" href="<?= site_url('ostoskori/siirryTilaamaan'); ?>">
+        <a class="btn btn-success kassalle" id="kassalle" href="<?= site_url('ostoskori/siirryTilaamaan'); ?>">
             <i class="fas fa-car"></i>
         </a>
 
