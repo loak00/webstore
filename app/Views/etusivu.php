@@ -1,6 +1,6 @@
     <div class="row">
         <div class="col-lg-3 text-center">
-            <div class="list-group pt-4">
+            <div class="list-group pt-4 mb-3">
                 <?php foreach ($tuoteryhmat as $tuoteryhma) : ?>
                     <a class="list-group-item shadow-sm p-3" href="<?= site_url('kauppa/index/' . $tuoteryhma['id']) ?>"><?= $tuoteryhma['nimi'] ." &nbsp; ". $tuoteryhma['kuvake']?></a>
                 <?php endforeach; ?>
@@ -8,7 +8,7 @@
             </div>
         </div>
 
-        <div class="col-lg-9">
+        <div class="col-lg-9 d-none d-lg-block">
             <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
