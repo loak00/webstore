@@ -57,14 +57,6 @@ class Ostoskori extends BaseController
     return redirect()->to(site_url('ostoskori/index'));
   }
 
-  /**
-   * Siirtää tilaussivulle (väliversiossa etusivulle!)
-   */
-  public function siirryTilaamaan()
-  {
-    return redirect()->to(site_url('home/index'));
-  }
-
 
   /**
    * Tallentaa tilauksen
@@ -88,7 +80,5 @@ class Ostoskori extends BaseController
     echo view('templates/header', $data);
     echo view('kiitos');
     echo view('templates/footer');
-
-
   }
 }

@@ -33,9 +33,40 @@ $summa = 0;
             </tr>
         </table>
 
-        <a class="btn btn-success kassalle" id="kassalle" href="<?= site_url('ostoskori/siirryTilaamaan'); ?>">
-            <i class="fas fa-car"></i>
-        </a>
-
+        <h3>Tilaajan tiedot</h3>
+        <form action="<?= site_url('ostoskori/tilaa') ?>" method="post">
+            <div class="col-12">
+                <?= \Config\Services::validation()->listErrors(); ?>
+            </div>
+            <div class="form-group">
+                <label>Etunimi</label>
+                <input class="form-control" name="nimi" placeholder="Etunimi" maxlength="30">
+            </div>
+            <div class="form-group">
+                <label>Sukunimi</label>
+                <input class="form-control" name="sukunimi" placeholder="Sukunimi" maxlength="30">
+            </div>
+            <div class="form-group">
+                <label>Lähiosoite</label>
+                <input class="form-control" name="lahiosoite" placeholder="Lähiosoite" maxlength="30">
+            </div>
+            <div class="form-group">
+                <label>Postinumero</label>
+                <input class="form-control" name="postinro" type="number" placeholder="Postinumero" maxlength="30">
+            </div>
+            <div class="form-group">
+                <label>Postitoimipaikka</label>
+                <input class="form-control" name="postitmp" placeholder="Postitoimipaikka" maxlength="30">
+            </div>
+            <div class="form-group">
+                <label>Sähköposti</label>
+                <input name="email" type="email" maxlength="255" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Puhelin</label>
+                <input name="puhelin" maxlength="20" class="form-control">
+            </div>
+            <button class="btn btn-primary">Vahvista tilaus</button>
+        </form>
     </div>
 </div>

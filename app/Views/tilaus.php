@@ -1,5 +1,6 @@
+<!-- Tämän sivun tilauslomake siirretty ostoskori.php -näkymään -->
 <h3>Kirjaudu</h3>
-<form>
+<form action="<?= site_url('ostoskori/tilaa')?>" method="post">>
     <div class="col-12">
         <?= \Config\Services::validation()->listErrors(); ?>
     </div>
