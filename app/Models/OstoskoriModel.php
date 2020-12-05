@@ -7,6 +7,9 @@ use CodeIgniter\Model;
 class OstoskoriModel extends Model
 {
   private $tuoteModel = null;
+  private $asiakasModel = null;
+  private $tilausModel = null;
+  private $tilausriviModel = null;
 
   function __construct()
   {
@@ -16,8 +19,15 @@ class OstoskoriModel extends Model
       $_SESSION['kori'] = array();
     }
 
-    $this->tuoteModel = new TuoteModel(); // Modelissa voidaan luoda toisesta luokasta model!
+   // Otetaan viittaus tietokanta-olion, jotta voidaan hallinnoida transaktoita.
+   $this->db = \Config\Database::connect();
+
+   $this->asiakasModel = new AsiakasModel();
+   $this->tilausModel = new TilausModel();
+   $this->tilausriviModel = new TilausriviModel();
+   $this->tuoteModel = new TuoteModel(); // Modelissa voidaan luoda toisesta luokasta model!
   }
+
   /**
    * Metodi tulostaa ostokorin sisällön
    */
@@ -73,8 +83,7 @@ class OstoskoriModel extends Model
     }
   }
 
-  public function tyhjenna()
-  {
+  public function tyhjenna() {
     $_SESSION['kori'] = null;
     $_SESSION['kori'] = array();
   }
@@ -97,16 +106,14 @@ class OstoskoriModel extends Model
     foreach ($_SESSION['kori'] as $tuote) {
       $this->tilausriviModel->save([
         'tilaus_id' => $tilaus_id,
-        'tuote_id' => $tuote['id'],
+        'tuote_id' => $tuote,
         // 'maara' => $tuote['maara'] Ei toimi vielä, lisätään myöhemmin
-      ]);
+     ]);
     }
     // Ostoskori tyhjennetään onnistuneen tilauksen jälkeen.
     $this->tyhjenna();
     // Päätetään transaktio.
     $this->db->transComplete();
   }
-
-
   
 }

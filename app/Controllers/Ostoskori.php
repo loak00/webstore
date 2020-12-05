@@ -78,7 +78,7 @@ class Ostoskori extends BaseController
 
     $data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
     echo view('templates/header', $data);
-    echo view('kiitos');
+    echo view('kiitos'); 
     echo view('templates/footer');
   }
 }

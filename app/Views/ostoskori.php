@@ -17,7 +17,7 @@ $summa = 0;
                             Poista <i class="fas fa-trash"></i></a></td>
                 </tr>
                 <?php
-                $summa += $tuote['hinta']; //Tätä myöhemmin muutettava, kun määrän hallinta toimii
+                $summa += $tuote['hinta']; //Tätä myöhemmin muutettava, kun määrän käsittely toimii
                 ?>
             <?php endforeach; ?>
             <tr>
@@ -40,7 +40,7 @@ $summa = 0;
             </div>
             <div class="form-group">
                 <label>Etunimi</label>
-                <input class="form-control" name="nimi" placeholder="Etunimi" maxlength="30">
+                <input class="form-control" name="etunimi" placeholder="Etunimi" maxlength="30">
             </div>
             <div class="form-group">
                 <label>Sukunimi</label>
@@ -52,11 +52,11 @@ $summa = 0;
             </div>
             <div class="form-group">
                 <label>Postinumero</label>
-                <input class="form-control" name="postinro" type="number" placeholder="Postinumero" maxlength="30">
+                <input class="form-control" name="postinumero" type="number" placeholder="Postinumero" maxlength="30">
             </div>
             <div class="form-group">
                 <label>Postitoimipaikka</label>
-                <input class="form-control" name="postitmp" placeholder="Postitoimipaikka" maxlength="30">
+                <input class="form-control" name="postitoimipaikka" placeholder="Postitoimipaikka" maxlength="30">
             </div>
             <div class="form-group">
                 <label>Sähköposti</label>
