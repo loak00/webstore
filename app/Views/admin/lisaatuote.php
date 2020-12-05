@@ -18,7 +18,7 @@
   </div>
   <div class="form-group">
     <label>Kuvan kuvaus</label>
-    <textarea name="kuvaus" class="form-control"><?= $kuvan_kuvaus?></textarea>
+    <textarea name="kuvan_kuvaus" class="form-control"><?= $kuvan_kuvaus?></textarea>
   </div>
   <div class="form-group">
     <label>Kuva</label>
