@@ -1,29 +1,46 @@
 <?php
-$summa = 0;
+$valisumma = 0;
+$loppusumma = 0;
 ?>
 <div class="row">
     <div class="col">
         <table class="table">
             <tr>
-                <th>Tilaamasi tuotteet:</th>
+                <td></td>
+                <td>Tuote</td>
+                <td>Kpl</td>
+                <td>Hinta</td>
+                <td>Yhteensä</td>
             </tr>
             <?php foreach ($tuotteet as $tuote) : ?>
+                <?php
+                $valisumma += $tuote['hinta']; //Tätä myöhemmin muutettava, kun määrän käsittely toimii
+                $loppusumma += $tuote['hinta'] * $tuote['hinta']; //Tämäkin laskukaava muutettava
+                ?>
                 <tr>
                     <td><img class="img-fluid" style="width: 100px; height: 100px;" src="<?= base_url('img/thumb_' . $tuote['kuva']) ?>" alt="<?= $tuote['kuvan_kuvaus'] ?>"></img></td>
                     <td><?= $tuote['nimi'] ?></td>
+                    <td><?= $tuote['nimi'] ?></td> <!-- Tähän kenttään tilalle määrä, kunhan toimii -->
                     <td><?= $tuote['hinta'] ?> €</td>
-
+                    <td><?= $valisumma ?> €</td>
                     <td><a href="<?= site_url('ostoskori/poista/' . $tuote['id']) ?>" onclick="return confirm('Haluatko varmasti poistaa tuotteen ostoskorista?')">
-                            Poista <i class="fas fa-trash"></i></a></td>
+                            Poista tuote <i class="fas fa-trash"></i></a></td>
                 </tr>
-                <?php
-                $summa += $tuote['hinta']; //Tätä myöhemmin muutettava, kun määrän käsittely toimii
-                ?>
             <?php endforeach; ?>
             <tr>
                 <td></td>
+                <td></td> 
+                <td></td>             
+                <td></td> 
+                <td></td>             
+                <td><?= $loppusumma?> €</td>             
+            </tr>
+            <tr>
                 <td></td>
-                <td><?= $summa ?></td>
+                <td></td> 
+                <td></td>             
+                <td></td>             
+                <td></td>             
                 <td>
                     <a id="tyhjenna" href="<?= site_url('ostoskori/tyhjenna'); ?>">Tyhjennä ostoskori
                         <i class="fas fa-trash" onclick="return confirm(
