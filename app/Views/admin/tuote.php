@@ -20,7 +20,7 @@
 </form>
 </div>
 <div>
-<?= anchor('kauppa/tallenna/' . $tuoteryhma_id,'Lisää uusi')?>
+<?= anchor('tuote/tallenna/' . $tuoteryhma_id,'Lisää uusi')?>
 </div>
 <table class="table">
 <?php foreach($tuotteet as $tuote): ?>

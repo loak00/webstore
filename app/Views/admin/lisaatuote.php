@@ -17,6 +17,10 @@
     <textarea name="kuvaus" class="form-control"><?= $kuvaus?></textarea>
   </div>
   <div class="form-group">
+    <label>Kuvan kuvaus</label>
+    <textarea name="kuvaus" class="form-control"><?= $kuvan_kuvaus?></textarea>
+  </div>
+  <div class="form-group">
     <label>Kuva</label>
     <input name="kuva" class="form-control" type="file">
     <?php 
