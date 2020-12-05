@@ -24,6 +24,7 @@ class Ostoskori extends BaseController
   public function index()
   {
     $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
+    //$data['tuotteet'] = $this->ostoskoriModel->ostokori();
     $data['tuotteet'] = $this->tuoteModel->haeTuotteet($_SESSION['kori']);
     $data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
     $data['login'] = $this->loginModel->kirjautunut();
@@ -62,5 +63,32 @@ class Ostoskori extends BaseController
   public function siirryTilaamaan()
   {
     return redirect()->to(site_url('home/index'));
+  }
+
+
+  /**
+   * Tallentaa tilauksen
+   */
+  public function tilaa()
+  {
+    $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
+    $asiakas = [
+      'etunimi' => $this->request->getPost('etunimi'),
+      'sukunimi' => $this->request->getPost('sukunimi'),
+      'lahiosoite' => $this->request->getPost('lahiosoite'),
+      'postinumero' => $this->request->getPost('postinumero'),
+      'postitoimipaikka' => $this->request->getPost('postitoimipaikka'),
+      'email' => $this->request->getPost('email'),
+      'puhelin' => $this->request->getPost('puhelin')
+    ];
+
+    $this->ostoskoriModel->tilaa($asiakas);
+
+    $data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
+    echo view('templates/header', $data);
+    echo view('kiitos');
+    echo view('templates/footer');
+
+
   }
 }

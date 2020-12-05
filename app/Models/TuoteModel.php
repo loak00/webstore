@@ -22,6 +22,12 @@ class TuoteModel extends Model
     return $this->getWhere(['tuoteryhma_id' => $tuoteryhma_id])->getResultArray();
   }
 
+  /**
+   * Hakee tuotteen id:n perusteella.
+   * 
+   * @param int $id Haettavan tuotteen id.
+   * @return Array Haetun tuotteen tiedot taulukkona (yksi rivi).
+   */
   public function haeTuote($id)
   {
     /* $this->where('id',$id);

@@ -65,3 +65,36 @@ values ('Taidelasi','Tämä on taidelasi',256,NULL,NULL,20,3);
 
 insert into tuote (nimi,kuvaus,hinta,kuva,kuvan_kuvaus,varastomaara,tuoteryhma_id)
 values ('lusikka','Tämä on lusikka',399,NULL,NULL,5,4);
+
+create table asiakas (
+  id int primary key auto_increment,
+  sukunimi varchar(50) not null,
+  etunimi varchar(50) not null,
+  lahiosoite varchar(100) not null,
+  postitoimipaikka varchar(50) not null,
+  postinumero char(5) not null,
+  puhelin varchar(20),
+  email varchar(100)
+);
+
+create table tilaus (
+  id int primary key auto_increment,
+  paivays timestamp default current_timestamp,
+  asiakas_id int not null,
+  tila enum ('tilattu','toimitettu'),
+  index asiakas_id(asiakas_id),
+  foreign key (asiakas_id) references asiakas(id)
+  on delete restrict
+);
+
+create table tilausrivi (
+  tilaus_id int not null,
+  index tilaus_id(tilaus_id),
+  foreign key (tilaus_id) references tilaus(id)
+  on delete restrict,
+  tuote_id int not null,
+  index tuote_id(tuote_id),
+  foreign key (tuote_id) references tuote(id)
+  on delete restrict,
+  maara smallint unsigned 
+);

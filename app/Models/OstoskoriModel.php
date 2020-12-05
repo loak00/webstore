@@ -23,7 +23,8 @@ class OstoskoriModel extends Model
    */
   public function ostokori()
   {
-    return $this->tuoteModel->haeTuote($_SESSION['kori']);
+    return $_SESSION['kori'];
+    //return $this->tuoteModel->haeTuote($_SESSION['kori']);
   }
 
   /**
@@ -42,6 +43,17 @@ class OstoskoriModel extends Model
    */
   public function lisaa($tuote_id)
   {
+    $tuote = $this->tuoteModel->haeTuote($tuote_id);
+
+    // for ($i = 0; $i < count($_SESSION['kori']); $i++) {
+    //   $ostoskorinTuote = $_SESSION['kori'][$i];
+    //   if ($tuote_id === $ostoskorinTuote['id']) {
+    //     $ostoskorinTuote['maara'] = $ostoskorinTuote['maara'] + 1;
+    //     $_SESSION['kori'][$i] = $ostoskorinTuote;
+    //     return;
+    //   }
+   // }
+    //$tuote['maara'] = 1;
     array_push($_SESSION['kori'], $tuote_id);
   }
 
@@ -66,4 +78,35 @@ class OstoskoriModel extends Model
     $_SESSION['kori'] = null;
     $_SESSION['kori'] = array();
   }
+
+  /**
+   * Tallentaa tilauksen tietokantaan (asiakas, tilaus ja tilausrivi).
+   * 
+   * @param Array $asiakas Asiakkaan tiedot.
+   */
+  public function tilaa($asiakas) {
+    // Aloitetaan transaktiot.
+    $this->db->transStart(); 
+    // Tallennetaan asiakas.
+    $this->asiakasModel->save($asiakas);
+    $asiakas_id = $this->insertID();
+    // Tallennetaan tilaus.
+    $this->tilausModel->save(['asiakas_id' => $asiakas_id]);
+    $tilaus_id = $this->insertID();
+    // Tallennetaan tilausrivit.
+    foreach ($_SESSION['kori'] as $tuote) {
+      $this->tilausriviModel->save([
+        'tilaus_id' => $tilaus_id,
+        'tuote_id' => $tuote['id'],
+        // 'maara' => $tuote['maara'] Ei toimi vielä, lisätään myöhemmin
+      ]);
+    }
+    // Ostoskori tyhjennetään onnistuneen tilauksen jälkeen.
+    $this->tyhjenna();
+    // Päätetään transaktio.
+    $this->db->transComplete();
+  }
+
+
+  
 }
