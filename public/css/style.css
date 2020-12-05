@@ -130,3 +130,8 @@ a.list-group-item:hover{
   margin-bottom: 2em;
   font-size: small;
 }
+
+.tuotekuva {
+  height: auto;
+  max-width: 70%;
+}
