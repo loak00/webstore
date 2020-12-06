@@ -14,13 +14,13 @@ $loppusumma = 0;
             </tr>
             <?php foreach ($tuotteet as $tuote) : ?>
                 <?php
-                $valisumma += $tuote['hinta']; //Tätä myöhemmin muutettava, kun määrän käsittely toimii
-                $loppusumma += $tuote['hinta'] * $tuote['hinta']; //Tämäkin laskukaava muutettava
+                $valisumma = $tuote['hinta'] * $tuote['maara']; //Tätä myöhemmin muutettava, kun määrän käsittely toimii
+                $loppusumma += $tuote['hinta'] * $tuote['maara']; /* *  */; //Tämäkin laskukaava muutettava
                 ?>
                 <tr>
                     <td><img class="img-fluid" style="width: 100px; height: 100px;" src="<?= base_url('img/thumb_' . $tuote['kuva']) ?>" alt="<?= $tuote['kuvan_kuvaus'] ?>"></img></td>
                     <td><?= $tuote['nimi'] ?></td>
-                    <td><?= $tuote['nimi'] ?></td> <!-- Tähän kenttään tilalle määrä, kunhan toimii -->
+                    <td><?= $tuote['maara'] ?></td> <!-- Tähän kenttään tilalle määrä, kunhan toimii -->
                     <td><?= $tuote['hinta'] ?> €</td>
                     <td><?= $valisumma ?> €</td>
                     <td><a href="<?= site_url('ostoskori/poista/' . $tuote['id']) ?>" onclick="return confirm('Haluatko varmasti poistaa tuotteen ostoskorista?')">

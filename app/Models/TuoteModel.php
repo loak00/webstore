@@ -30,14 +30,14 @@ class TuoteModel extends Model
    */
   public function haeTuote($id)
   {
-    /* $this->where('id',$id);
+    $this->where('id',$id);
     $query = $this->get();
     $tuote = $query->getRowArray();
     // Voidaan käyttää debuggauksessa, kun halutaan tietää, mikä
     // kysely suoritettiin.
     //echo $this->getLastQuery(); 
-    return $tuote; */
-    return $this->getWhere(['id' => $id])->getRowArray();
+    return $tuote;
+   /*  return $this->getWhere(['id' => $id])->getRowArray(); */
   }
 
   public function haeTuotteet($idt)

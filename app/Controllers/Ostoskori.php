@@ -24,8 +24,8 @@ class Ostoskori extends BaseController
   public function index()
   {
     $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
-    //$data['tuotteet'] = $this->ostoskoriModel->ostokori();
-    $data['tuotteet'] = $this->tuoteModel->haeTuotteet($_SESSION['kori']);
+    $data['tuotteet'] = $this->ostoskoriModel->ostokori();
+    /* $data['tuotteet'] = $this->tuoteModel->haeTuotteet($_SESSION['kori'][]); */
     $data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
     $data['login'] = $this->loginModel->kirjautunut();
     echo view('templates/header', $data);
@@ -45,7 +45,7 @@ class Ostoskori extends BaseController
   public function poista($tuote_id)
   {
     $this->ostoskoriModel->poista($tuote_id);
-    return redirect()->to(site_url('ostoskori/index'));
+    return redirect()->back();
   }
 
   /**
