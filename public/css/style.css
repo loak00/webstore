@@ -135,3 +135,12 @@ a.list-group-item:hover{
   height: auto;
   max-width: 70%;
 }
+
+.zoom {
+  background-color: transparent;
+  transition: transform .5s; /* Animation */
+  margin: 0 auto;
+}
+.zoom:hover {
+  transform: scale(1.25); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}

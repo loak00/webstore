@@ -94,7 +94,7 @@
             </div>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item zoom">
             <a id="kori" class="nav-link" href="<?= site_url('ostoskori/index'); ?>">
               <i class="fas fa-shopping-cart">
                 <span class="badge badge-pill badge-danger"><?= $ostoskori_lkm ?></span>
