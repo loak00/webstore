@@ -3,7 +3,7 @@
 use CodeIgniter\Model;
 
 /**
- * Sisältää asiakas-taulun käsittelyyn liittyviä metodeja.
+ * Sisältää tilaus-taulun käsittelyyn liittyviä metodeja.
  */
 class TilausModel extends Model {
   protected $table = 'tilaus'; // Malli käsittelee tilaus-taulua tietokannassa.

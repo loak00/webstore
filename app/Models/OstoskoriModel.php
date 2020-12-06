@@ -66,8 +66,6 @@ class OstoskoriModel extends Model
 
     $this->lisaaTuoteTaulukkoon($ostoskorinTuote, $_SESSION['kori']);
 
-
-
     /* for ($i = 0; $i < count($_SESSION['kori']); $i++) {
       $ostoskorinTuote = $_SESSION['kori'][$i];
       if ($tuote_id === $ostoskorinTuote['id']) {
