@@ -15,7 +15,7 @@
 
 <body>
   <div class="container-fluid">
-    
+
     <a href="<?= site_url('Home/index') ?>">
       <div class="carousel slide carousel-fade" data-ride="carousel" data-interval="10000">
         <div class="carousel-inner">
@@ -67,16 +67,17 @@
             </div>
           </li>
         </ul>
-        <form class="mx-2 w-25">
-          <div class="input-group collapse navbar-collapse">
-            <input type="text" class="form-control border border-right-0" placeholder="Etsi tuotteista...">
+
+        <div class="mx-2 w-25">
+          <form class="input-group collapse navbar-collapse" method="post" action="<?= site_url('kauppa/etsi/') ?>">
+            <input class="form-control border border-right-0" type="search" aria-label="Search" name="etsi" placeholder="Etsi tuotteista...">
             <span class="input-group-append">
-              <button class="btn btn-outline-light border border-left-0" type="button">
+              <button class="btn btn-outline-light border border-left-0" type="submit">
                 <i class="fa fa-search"></i>
               </button>
             </span>
-          </div>
-        </form>
+          </form>
+        </div>
 
         <ul class="navbar-nav">
           <li class="nav-item">

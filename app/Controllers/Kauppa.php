@@ -22,7 +22,6 @@ class Kauppa extends BaseController
 		$this->ostoskoriModel = new OstoskoriModel();
 	}
 
-
 	public function index($tuoteryhma_id)
 	{
 		$data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
@@ -33,7 +32,6 @@ class Kauppa extends BaseController
 		echo view('kauppa');
 		echo view('templates/footer');
 	}
-
 
 	public function tuote($tuote_id)
 	{
@@ -57,8 +55,17 @@ class Kauppa extends BaseController
 		echo view('templates/footer');
 	}
 
+		public function etsi() 
+	{
+		$nimi = $this->request->getPost('etsi');
+		$data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
+		$data['login'] = $this->loginModel->kirjautunut();
+		$data['tuotteet'] = $this->tuoteModel->haeNimella($nimi);
+		$data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
+		echo view('templates/header',$data);
+		echo view('kauppa');
+		echo view('templates/footer');
+	}
+
 	//--------------------------------------------------------------------
-
-	
-
 }
