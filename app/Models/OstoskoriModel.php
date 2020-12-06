@@ -136,8 +136,8 @@ class OstoskoriModel extends Model
     foreach ($_SESSION['kori'] as $tuote) {
       $this->tilausriviModel->save([
         'tilaus_id' => $tilaus_id,
-        'tuote_id' => $tuote,
-        // 'maara' => $tuote['maara'] Ei toimi vielä, lisätään myöhemmin
+        'tuote_id' => $tuote['id'],
+        'maara' => $tuote['maara']
       ]);
     }
     // Ostoskori tyhjennetään onnistuneen tilauksen jälkeen.

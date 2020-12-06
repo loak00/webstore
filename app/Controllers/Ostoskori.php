@@ -76,7 +76,11 @@ class Ostoskori extends BaseController
 
     $this->ostoskoriModel->tilaa($asiakas);
 
+    $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
+    $data['tuotteet'] = $this->ostoskoriModel->ostokori();
+    /* $data['tuotteet'] = $this->tuoteModel->haeTuotteet($_SESSION['kori'][]); */
     $data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
+    $data['login'] = $this->loginModel->kirjautunut();
     echo view('templates/header', $data);
     echo view('kiitos'); 
     echo view('templates/footer');
