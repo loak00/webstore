@@ -84,4 +84,11 @@ class TuoteModel extends Model
       return $tuotteet; // Palautetaan tuotteet suoraan, koska niitä on 3 tai vähemmän.
     }
   }
+
+  public function haeNimella($nimi)
+  {
+    $this->like('nimi', $nimi);
+    $query = $this->get();
+    return $query->getResultArray();
+  }
 }
