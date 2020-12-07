@@ -85,9 +85,10 @@ class TuoteModel extends Model
     }
   }
 
-  public function haeNimella($nimi)
+  public function haeTeksti($haku)
   {
-    $this->like('nimi', $nimi);
+    $this->like('nimi', $haku);
+    $this->orLike('kuvaus', $haku);
     $query = $this->get();
     return $query->getResultArray();
   }

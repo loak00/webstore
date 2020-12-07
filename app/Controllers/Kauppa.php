@@ -57,10 +57,10 @@ class Kauppa extends BaseController
 
 		public function etsi() 
 	{
-		$nimi = $this->request->getPost('etsi');
+		$haku = $this->request->getPost('etsi');
 		$data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
 		$data['login'] = $this->loginModel->kirjautunut();
-		$data['tuotteet'] = $this->tuoteModel->haeNimella($nimi);
+		$data['tuotteet'] = $this->tuoteModel->haeTeksti($haku);
 		$data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
 		echo view('templates/header',$data);
 		echo view('kauppa');
