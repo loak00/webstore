@@ -10,4 +10,17 @@ class TilausriviModel extends Model {
 
   // Luettelo niistä kentistä, joita päivitetään, kun ajetaan tallennus (esim. save) tietokantaan.
   protected $allowedFields = ['tilaus_id','tuote_id','maara'];
+
+  /**
+  * Poistaa tilausrivit tilaukselta.
+  * 
+  * @param int $tilaus_id Tilauksen id, jonka tilausrivit poistetaan.
+  */
+  public function poistaTilauksella($tilaus_id) {
+    $this->where('tilaus_id',$tilaus_id);
+    $this->delete();
+  }
+
+
+
 }

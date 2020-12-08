@@ -32,6 +32,19 @@ class Tilaus extends BaseController
   }
 
   /**
+   * Poistaa tilauksen ja tilausrivit. Asiakastieto jää tietokantaan.
+   * 
+   * @param int $id Poistettavan tilauksen id.
+   */
+    public function poista($id) {
+    // Poistetaan ensin tuotteet tuoteryhmän alta.
+    $this->tilausriviModel->poistaTilauksella($id);
+    // Poistetaan tuoteryhmä.
+    $this->tilausModel->poista($id);
+    return redirect()->to(site_url('/tilaus/index'));
+  }
+
+  /**
    * Näyttää asiakkaat.
    */
   public function asiakkaat()
