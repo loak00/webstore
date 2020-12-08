@@ -144,3 +144,12 @@ a.list-group-item:hover{
 .zoom:hover {
   transform: scale(1.4); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
+
+.zoom2 {
+  background-color: transparent;
+  transition: transform .5s; /* Animation */
+  margin: 0 auto;
+}
+.zoom2:hover {
+  transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
