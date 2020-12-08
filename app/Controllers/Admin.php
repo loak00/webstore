@@ -64,6 +64,7 @@ class Admin extends BaseController
     $this->viestiModel->poista($id);
     return redirect('admin/viestit');
   }
+  
 
   //--------------------------------------------------------------------
 

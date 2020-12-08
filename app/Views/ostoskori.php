@@ -22,7 +22,7 @@ $loppusumma = 0;
                     <td><?= $tuote['nimi'] ?></td>
                     <td><?= $tuote['maara'] ?></td> 
                     <td><?= $tuote['hinta'] ?> €</td>
-                    <td><?= $valisumma ?> €</td>
+                    <td><?= number_format($valisumma, 2) ?> €</td>
                     <td><a href="<?= site_url('ostoskori/poista/' . $tuote['id']) ?>" onclick="return confirm('Haluatko varmasti poistaa tuotteen ostoskorista?')">
                             Poista tuote <i class="fas fa-trash"></i></a></td>
                 </tr>
@@ -33,7 +33,7 @@ $loppusumma = 0;
                 <td></td>             
                 <td></td> 
                 <td></td>             
-                <td><?= $loppusumma?> €</td>             
+                <td><?= number_format($loppusumma, 2);?> €</td>             
             </tr>
             <tr>
                 <td></td>
