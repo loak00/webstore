@@ -24,6 +24,7 @@ class Tilaus extends BaseController
    */
   public function index()
   {
+    $data['otsikko'] = 'Tilaukset';
     $data['tilaukset'] = $this->tilausModel->haeTilaukset();
     echo view('templates/header_admin.php');
     echo view('admin/tilaus.php', $data);

@@ -76,6 +76,16 @@ class Admin extends BaseController
     $this->viestiModel->poista($id);
     return redirect('admin/viestit');
   }
+
+  // public function haeTilaukset()
+  // {
+  //   $data['tilaukset'] = $this->TilausModel->haeTilaukset();
+  //   $data['otsikko'] = 'Tilaukset';
+  //   echo view('templates/header_admin.php', $data);
+  //   echo view('admin/tilaus.php', $data);
+  //   echo view('templates/footer.php');
+  // }
+
   
 
   //--------------------------------------------------------------------

@@ -10,4 +10,10 @@ class TilausModel extends Model {
 
   // Luettelo niistä kentistä, joita päivitetään, kun ajetaan tallennus (esim. save) tietokantaan.
   protected $allowedFields = ['asiakas_id']; 
+
+    public function haeTilaukset()
+  {
+    return $this->findAll();
+  }
 }
+
