@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use CodeIgniter\Exceptions\AlertError;
 use CodeIgniter\Model;
+use NumberFormatter;
 
 class OstoskoriModel extends Model
 {
@@ -61,22 +63,22 @@ class OstoskoriModel extends Model
     $ostoskorinTuote['nimi'] = $tuote['nimi'];
     $ostoskorinTuote['hinta'] = $tuote['hinta'];
     $ostoskorinTuote['kuva'] = $tuote['kuva'];
-    $ostoskorinTuote['kuvan_kuvaus'] = $tuote['kuvan_kuvaus'];;
+    $ostoskorinTuote['kuvan_kuvaus'] = $tuote['kuvan_kuvaus'];
     $ostoskorinTuote['maara'] = 0;
 
     $this->lisaaTuoteTaulukkoon($ostoskorinTuote, $_SESSION['kori']);
-
-    /* for ($i = 0; $i < count($_SESSION['kori']); $i++) {
-      $ostoskorinTuote = $_SESSION['kori'][$i];
-      if ($tuote_id === $ostoskorinTuote['id']) {
-        $ostoskorinTuote['maara'] = $ostoskorinTuote['maara'] + 1;
-        $_SESSION['kori'][$i] = $ostoskorinTuote;
-        return;
-      }
-    }
-    $tuote['maara'] = 1;
-    array_push($_SESSION['kori'], $tuote_id); */
   }
+  /**
+   * Metodi hakee varastossa olevan tuote määrän varastossa
+   * 
+   *   @param int $tuote_id tuotteen id.
+   */
+  private function varastoMaara($tuote_id)
+  {
+    $tuote = $this->tuoteModel->haeTuote($tuote_id);
+    return $tuote['varastomaara'];
+  }
+
 
   private function lisaaTuoteTaulukkoon($tuote, &$taulukko)
   {
@@ -84,9 +86,49 @@ class OstoskoriModel extends Model
     for ($i = 0; $i < count($taulukko); $i++) {
       // Jos löytyy id:llä, tuote on jo taulukossa. Päivitetään määrää.
       if ($taulukko[$i]['id'] === $tuote['id']) {
-        $taulukko[$i]['maara'] = $taulukko[$i]['maara']  + 1;
-        return; // Koska tuote voi olla vain kerran taulukossa, voidaan for-lause ja etsiminen
-        // lopettaa, jos tuote löytyy. Return-lauseen avulla poistutaan for-lauseesta.
+        // tarkistetaan, että onko tuotetta tarpeeksi varastossa
+        $varasto = $this->varastoMaara($taulukko[$i]['id']);
+        if ($taulukko[$i]['maara'] < $varasto) {
+          $taulukko[$i]['maara'] = $taulukko[$i]['maara']  + 1;
+          return; // Koska tuote voi olla vain kerran taulukossa, voidaan for-lause ja etsiminen
+          // lopettaa, jos tuote löytyy. Return-lauseen avulla poistutaan for-lauseesta.
+        }
+        return $taulukko[$i]['maara'] = $varasto;
+      }
+    }
+    $tuote['maara'] = 1; // Tuote ei ollut taulukossa, joten asetetaan määräksi 1.
+    array_push($taulukko, $tuote);
+  }
+
+  public function vahenna($tuote_id)
+  {
+    // Haetaan tuote id:n perusteella tietokannasta tuoteModelia kautta.
+    $tuote = $this->tuoteModel->haeTuote($tuote_id);
+
+    // Luodaan ostoskoriin lisättävä tuote (taulukko, jossa kenttinä tarvittavat tiedot.)
+    $ostoskorinTuote['id'] = $tuote['id'];
+    $ostoskorinTuote['nimi'] = $tuote['nimi'];
+    $ostoskorinTuote['hinta'] = $tuote['hinta'];
+    $ostoskorinTuote['kuva'] = $tuote['kuva'];
+    $ostoskorinTuote['kuvan_kuvaus'] = $tuote['kuvan_kuvaus'];
+    $ostoskorinTuote['maara'] = 0;
+
+    $this->vahennaTuoteTaulukosta($ostoskorinTuote, $_SESSION['kori']);
+  }
+
+  private function vahennaTuoteTaulukosta($tuote, &$taulukko)
+  {
+    // Käydään läpi taulukon rivit.
+    for ($i = 0; $i < count($taulukko); $i++) {
+      // Jos löytyy id:llä, tuote on jo taulukossa. Päivitetään määrää.
+      if ($taulukko[$i]['id'] === $tuote['id']) {
+        if ($taulukko[$i]['maara'] > 1) {
+          $taulukko[$i]['maara'] = $taulukko[$i]['maara']  - 1;
+          return; // Koska tuote voi olla vain kerran taulukossa, voidaan for-lause ja etsiminen
+          // lopettaa, jos tuote löytyy. Return-lauseen avulla poistutaan for-lauseesta.
+        }
+        $this->poista($tuote['id']);
+        return;
       }
     }
     $tuote['maara'] = 1; // Tuote ei ollut taulukossa, joten asetetaan määräksi 1.
