@@ -9,6 +9,8 @@ $loppusumma = 0;
                 <td></td>
                 <td>Tuote</td>
                 <td>Kpl</td>
+                <td></td> 
+                <td></td>
                 <td>Hinta</td>
                 <td>Yhteensä</td>
             </tr>
@@ -20,7 +22,12 @@ $loppusumma = 0;
                 <tr>
                     <td><img class="img-fluid" style="width: 100px; height: 100px;" src="<?= base_url('img/thumb_' . $tuote['kuva']) ?>" alt="<?= $tuote['kuvan_kuvaus'] ?>"></img></td>
                     <td><?= $tuote['nimi'] ?></td>
-                    <td><?= $tuote['maara'] ?></td> 
+                    <td><?= $tuote['maara'] ?></td>
+                    <td><a href="<?= site_url('ostoskori/lisaa/' . $tuote['id']) ?>">
+                            <i class="fa fa-plus"></i></a></td>
+                    <td><a href="<?= site_url('ostoskori/vahenna/' . $tuote['id']) ?>">
+                            <i class="fa fa-minus"></i></a></td>
+                 
                     <td><?= $tuote['hinta'] ?> €</td>
                     <td><?= number_format($valisumma, 2) ?> €</td>
                     <td><a href="<?= site_url('ostoskori/poista/' . $tuote['id']) ?>" onclick="return confirm('Haluatko varmasti poistaa tuotteen ostoskorista?')">
@@ -32,7 +39,9 @@ $loppusumma = 0;
                 <td></td> 
                 <td></td>             
                 <td></td> 
-                <td></td>             
+                <td></td> 
+                <td></td> 
+                <td></td>            
                 <td><?= number_format($loppusumma, 2);?> €</td>             
             </tr>
             <tr>
