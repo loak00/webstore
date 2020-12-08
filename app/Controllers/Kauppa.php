@@ -16,6 +16,8 @@ class Kauppa extends BaseController
 
 	function __construct()
 	{
+		$session = \Config\Services::session();
+        $session->start();
 		$this->tuoteryhmaModel = new TuoteRyhmaModel();
 		$this->tuoteModel = new TuoteModel();
 		$this->loginModel = new LoginModel();
@@ -58,6 +60,12 @@ class Kauppa extends BaseController
 		public function etsi() 
 	{
 		$haku = $this->request->getPost('etsi');
+		if(strlen($haku) > 0) {
+			$_SESSION['haku'] = $haku;
+		} else {
+			$haku = $_SESSION['haku'];
+		}
+
 		$data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
 		$data['login'] = $this->loginModel->kirjautunut();
 		$data['tuotteet'] = $this->tuoteModel->haeTeksti($haku);
