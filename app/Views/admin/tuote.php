@@ -30,6 +30,9 @@
     <td><?= $tuote['hinta']?> €</td>
     <td><?= $tuote['varastomaara']?></td>
     <td><?= anchor('tuote/tallenna/' . $tuoteryhma_id . '/' . $tuote['id'],'Muokkaa')?></td>
+    <td><a href="<?= site_url('admin/poistaTuote/' . $tuote['id'])?>"
+            onclick="return confirm('Haluatko varmasti poistaa tuotteen?')">            
+       Poista <i class="fas fa-trash"></i></a></td>
   </tr>
 <?php endforeach;?>
 </table>

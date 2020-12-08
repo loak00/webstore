@@ -92,4 +92,14 @@ class TuoteModel extends Model
     $query = $this->get();
     return $query->getResultArray();
   }
+
+   /**
+   * Poistaa tuotteen.
+   * 
+   * @param int $id Poistettavan tuotteen id.
+   */
+  public function poista($id) {
+    $this->where('id',$id);
+    $this->delete();
+  }
 }

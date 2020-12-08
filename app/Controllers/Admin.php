@@ -5,18 +5,24 @@ namespace App\Controllers;
 use App\Models\TuoteryhmaModel;
 use App\Models\LoginModel;
 use App\Models\ViestiModel;
+use App\Models\TuoteModel;
+
 
 class Admin extends BaseController
 {
   private $tuoteryhmaModel = null;
-  private $LoginModel = null;
+  private $loginModel = null;
   private $viestiModel = null;
+  private $tuoteModel = null;
+
 
   function __construct()
   {
     $this->tuoteryhmaModel = new TuoteryhmaModel();
     $this->loginModel = new LoginModel();
     $this->viestiModel = new ViestiModel();
+    $this->tuoteModel = new TuoteModel();
+
   }
 
   public function index()
@@ -48,6 +54,12 @@ class Admin extends BaseController
   {
     $this->tuoteryhmaModel->poista($id);
     return redirect('admin/index');
+  }
+
+  public function poistaTuote($id)
+  {
+    $this->tuoteModel->poista($id);
+    return redirect ('admin/index');
   }
 
   public function viestit()
