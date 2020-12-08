@@ -1,25 +1,10 @@
--- phpMyAdmin SQL Dump
--- version 5.0.2
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: 06.12.2020 klo 21:21
--- Palvelimen versio: 10.4.11-MariaDB
--- PHP Version: 7.4.5
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Database: `webstore`
 --
+
+drop database if exists webstore;
+create database webstore;
+use webstore;
 
 -- --------------------------------------------------------
 
@@ -177,10 +162,10 @@ INSERT INTO `tuoteryhma` (`id`, `nimi`, `kuvake`) VALUES
 (2, 'Lautaset', '<i class=\"fas fa-bullseye text-muted\"></i>'),
 (3, 'Taidelasi', '<i class=\"fas fa-glass-martini-alt text-muted\"></i>'),
 (4, 'Ruokailuvälineet', '<i class=\"fas fa-utensils text-muted\"></i>'),
-(5, 'Jälkiruokakupit', NULL),
-(6, 'Keramiikkakipot', NULL),
-(7, 'Pienet kahvikupit', NULL),
-(8, 'Juomalasit', NULL);
+(5, 'Jälkiruokakupit', '<i class=\"fas fa-ring text-muted\"></i>'),
+(6, 'Keramiikkakipot', '<i class=\"fas fa-drum-steelpan text-muted\"></i>'),
+(7, 'Pienet kahvikupit', '<i class=\"fas fa-mug-hot text-muted\"></i>'),
+(8, 'Juomalasit', '<i class=\"fas fa-beer text-muted\"></i>');
 
 -- --------------------------------------------------------
 
@@ -370,6 +355,10 @@ ALTER TABLE `tuote`
   ADD CONSTRAINT `tuote_ibfk_1` FOREIGN KEY (`tuoteryhma_id`) REFERENCES `tuoteryhma` (`id`);
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+CREATE TABLE `admin` (
+  `adminname` varchar(30) NOT NULL,
+  `password` varchar(255) NOT NULL
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+  INSERT INTO `admin` (`adminname`, `password`) VALUES
+('habaneroadmin1', '$2y$10$ioMaxzDbnjxDS7H2T2Eheuk8T23.x3PQZR2P90iSiTwZg6bCvTrF6');

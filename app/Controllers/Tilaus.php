@@ -24,10 +24,24 @@ class Tilaus extends BaseController
    */
   public function index()
   {
+    $data['otsikko'] = 'Tilaukset';
     $data['tilaukset'] = $this->tilausModel->haeTilaukset();
     echo view('templates/header_admin.php');
     echo view('admin/tilaus.php', $data);
     echo view('templates/footer.php');
+  }
+
+  /**
+   * Poistaa tilauksen ja tilausrivit. Asiakastieto jää tietokantaan.
+   * 
+   * @param int $id Poistettavan tilauksen id.
+   */
+    public function poista($id) {
+    // Poistetaan ensin tuotteet tuoteryhmän alta.
+    $this->tilausriviModel->poistaTilauksella($id);
+    // Poistetaan tuoteryhmä.
+    $this->tilausModel->poista($id);
+    return redirect()->to(site_url('/tilaus/index'));
   }
 
   /**

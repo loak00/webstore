@@ -39,6 +39,12 @@ class Ostoskori extends BaseController
     return redirect()->back(); // palataan takaisin samalle sivulle
   }
 
+  public function vahenna($tuote_id)
+  {
+    $this->ostoskoriModel->vahenna($tuote_id); // istuntomuuttuja asetettu jo modelissa, ei tarvi enää tässä
+    return redirect()->back(); // palataan takaisin samalle sivulle
+  }
+
   /**
    * Poistaa valitun tuotteen ostoskorista.
    */
