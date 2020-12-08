@@ -34,6 +34,9 @@
           <li class="nav-item">
             <a class="nav-link" href="<?=site_url('admin/viestit/')?>">Viestit</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?=site_url('admin/logout/')?>">Kirjaudu ulos</a>
+          </li>
         </ul>  
       </div>
     </nav>  

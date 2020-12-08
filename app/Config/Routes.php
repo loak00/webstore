@@ -33,6 +33,8 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/admin/index', 'Admin::index');
 $routes->get('/admin/viestit', 'Admin::viestit');
+$routes->get('adminlogin', 'Admin::login');
+$routes->get('admincheck','Adminlogin::check');
 $routes->get('login', 'Login::index');
 $routes->get('register','Login::register');
 $routes->get('check','Login::check');

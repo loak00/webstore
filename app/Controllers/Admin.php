@@ -5,27 +5,36 @@ namespace App\Controllers;
 use App\Models\TuoteryhmaModel;
 use App\Models\LoginModel;
 use App\Models\ViestiModel;
+use App\Models\AdminLoginModel;
 
 class Admin extends BaseController
 {
   private $tuoteryhmaModel = null;
-  private $LoginModel = null;
+  private $adminloginModel = null;
   private $viestiModel = null;
 
   function __construct()
   {
     $this->tuoteryhmaModel = new TuoteryhmaModel();
-    $this->loginModel = new LoginModel();
+    $this->adminloginModel = new AdminLoginModel();
     $this->viestiModel = new ViestiModel();
   }
 
   public function index()
   {
+    if (!isset($_SESSION['admin'])){
+			return redirect('adminlogin');
+		}
     $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
     $data['otsikko'] = 'Tuoteryhmät';
     echo view('templates/header_admin.php', $data);
     echo view('admin/tuoteryhma.php', $data);
     echo view('templates/footer.php');
+  }
+
+  public function login()
+  {
+    echo view('admin/adminlogin.php');
   }
 
   public function tallenna()
@@ -64,7 +73,35 @@ class Admin extends BaseController
     $this->viestiModel->poista($id);
     return redirect('admin/viestit');
   }
-  
+
+  public function check() {
+    // $model = new LoginModel();
+
+    if (!$this->validate([
+        'adminname' => 'required|min_length[8]|max_length[30]',
+        'password' => 'required|min_length[8]|max_length[30]',
+    ])){
+        echo view('admin/adminlogin');
+    }
+    else {
+        $user = $this->adminloginModel->check(
+            $this->request->getVar('adminname'),
+            $this->request->getVar('password')
+        );
+        if ($user) {
+            $_SESSION['admin'] = $user;
+            return redirect('admin/index');
+        }
+        else {
+            echo view('admin/adminlogin');
+        }
+    }
+   
+}
+public function logout() {
+  $this->adminloginModel->logout();
+  return redirect()->to(site_url('/'));		
+} 
 
   //--------------------------------------------------------------------
 

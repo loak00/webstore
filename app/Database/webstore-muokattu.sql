@@ -354,3 +354,11 @@ ALTER TABLE `tilausrivi`
 ALTER TABLE `tuote`
   ADD CONSTRAINT `tuote_ibfk_1` FOREIGN KEY (`tuoteryhma_id`) REFERENCES `tuoteryhma` (`id`);
 COMMIT;
+
+CREATE TABLE `admin` (
+  `adminname` varchar(30) NOT NULL,
+  `password` varchar(255) NOT NULL
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+  INSERT INTO `admin` (`adminname`, `password`) VALUES
+('habaneroadmin1', 'ad123456');
