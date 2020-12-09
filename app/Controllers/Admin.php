@@ -52,7 +52,6 @@ class Admin extends BaseController
       if (!isset($_SESSION['admin'])){
         return redirect('adminlogin');
       }
-
       echo view('templates/header_admin.php');
       echo view('admin/tuoteryhma_lomake.php');
       echo view('templates/footer.php');
@@ -78,7 +77,8 @@ class Admin extends BaseController
     if (!isset($_SESSION['admin'])){
 			return redirect('adminlogin');
 		}
-    return redirect ('admin/index');
+    return redirect()->back();
+
   }
 
   public function viestit()
