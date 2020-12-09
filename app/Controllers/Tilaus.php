@@ -5,18 +5,21 @@ namespace App\Controllers;
 use App\Models\AsiakasModel;
 use App\Models\TilausModel;
 use App\Models\TilausriviModel;
+use App\Models\LoginModel;
 
 class Tilaus extends BaseController
 {
   private $asiakasModel = null;
   private $tilausModel = null;
   private $tilausriviModel = null;
+  private $loginModel = null;
 
   function __construct()
   {
     $this->asiakasModel = new AsiakasModel();
     $this->tilausModel = new TilausModel();
     $this->tilausriviModel = new TilausriviModel();
+    $this->loginModel = new LoginModel();
   }
 
   /**
@@ -24,6 +27,9 @@ class Tilaus extends BaseController
    */
   public function index()
   {
+    if (!isset($_SESSION['admin'])){
+			return redirect('adminlogin');
+		}
     $data['otsikko'] = 'Tilaukset';
     $data['tilaukset'] = $this->tilausModel->haeTilaukset();
     echo view('templates/header_admin.php');
@@ -41,6 +47,9 @@ class Tilaus extends BaseController
     $this->tilausriviModel->poistaTilauksella($id);
     // Poistetaan tuoteryhmä.
     $this->tilausModel->poista($id);
+    if (!isset($_SESSION['admin'])){
+			return redirect('adminlogin');
+		}
     return redirect()->to(site_url('/tilaus/index'));
   }
 
@@ -49,6 +58,9 @@ class Tilaus extends BaseController
    */
   public function asiakkaat()
   {
+    if (!isset($_SESSION['admin'])){
+			return redirect('adminlogin');
+		}
     echo "TODO";
   }
 }

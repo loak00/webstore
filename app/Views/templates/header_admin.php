@@ -39,5 +39,7 @@
           </li>
         </ul>  
       </div>
-    </nav>  
+    </nav> 
+    <!-- Tulostaa istuntomuuttujan debugaamista varten -->
+ <!--   <?= print_r($_SESSION); ?>  -->
     <div class="container">

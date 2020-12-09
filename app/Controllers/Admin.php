@@ -49,6 +49,9 @@ class Admin extends BaseController
     if (!$this->validate([
       'nimi' => 'required|max_length[50]'
     ])) {
+      if (!isset($_SESSION['admin'])){
+        return redirect('adminlogin');
+      }
 
       echo view('templates/header_admin.php');
       echo view('admin/tuoteryhma_lomake.php');
@@ -63,17 +66,26 @@ class Admin extends BaseController
   public function poista($id)
   {
     $this->tuoteryhmaModel->poista($id);
+    if (!isset($_SESSION['admin'])){
+			return redirect('adminlogin');
+		}
     return redirect('admin/index');
   }
 
   public function poistaTuote($id)
   {
     $this->tuoteModel->poista($id);
+    if (!isset($_SESSION['admin'])){
+			return redirect('adminlogin');
+		}
     return redirect ('admin/index');
   }
 
   public function viestit()
   {
+    if (!isset($_SESSION['admin'])){
+			return redirect('adminlogin');
+		}
     $data['viestit'] = $this->viestiModel->haeViestit();
     $data['otsikko'] = 'Viestit/Yhteydenotot';
     echo view('templates/header_admin.php', $data);
@@ -84,6 +96,9 @@ class Admin extends BaseController
   public function poista_viesti($id)
   {
     $this->viestiModel->poista($id);
+    if (!isset($_SESSION['admin'])){
+			return redirect('adminlogin');
+		}
     return redirect('admin/viestit');
   }
 
