@@ -52,9 +52,9 @@
       </button>
 
       <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-        <a class="navbar-brand" href="<?= site_url('Home/index') ?>"><i class="fas fa-home collapse navbar-collapse zoom"></i></a>
+        <a class="navbar-brand" href="<?= site_url('Home/index') ?>"><i class="fas fa-home collapse navbar-collapse zoom mr-2"></i></a>
         <ul class="navbar-nav">
-          <li class="nav-item dropdown mr-1 ml-1">
+          <li class="nav-item dropdown mr-2 ml-1">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Tuotteet
             </a>
@@ -80,12 +80,12 @@
         </div>
 
         <ul class="navbar-nav">
-          <li class="nav-item ml-1">
+          <li class="nav-item mr-1 ml-2">
             <a class="nav-link" href="<?= site_url('yhteystiedot/index'); ?>">Yhteystiedot</a>
           </li>
           <li class="nav-item dropdown mr-1">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-user pl-3"></i><?= " " . $login[0]; ?>
+            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-user pl-3 mr-1"></i><?= " " . $login[0]; ?>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a id="login" class="dropdown-item" href="<?= site_url('login/' . $login[1]); ?>">
@@ -94,7 +94,7 @@
             </div>
           </li>
 
-          <li class="nav-item zoom ml-1">
+          <li class="nav-item zoom ml-2">
             <a id="kori" class="nav-link" href="<?= site_url('ostoskori/index'); ?>">
               <i class="fas fa-shopping-cart">
                 <span class="badge badge-pill badge-danger"><?= $ostoskori_lkm ?></span>

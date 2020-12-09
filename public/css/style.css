@@ -123,12 +123,23 @@ a:visited {
 
 a.list-group-item:hover{
   font-weight: 500;
-  }
+}
 
-.korttifooter {
-  margin-top: 1em;
-  margin-bottom: 2em;
+.card-title {
+  margin-bottom: 1.25em;
+}
+
+.kuvausteksti {
+  margin-top: 2em;
+  margin-bottom: 1em;
   font-size: small;
+}
+
+.hinta {
+  margin-top: 1em;
+  font-size: large;
+  font-weight: 600;
+  color: #00a81c
 }
 
 .tuotekuva {
