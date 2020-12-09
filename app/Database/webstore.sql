@@ -361,4 +361,5 @@ CREATE TABLE `admin` (
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
   INSERT INTO `admin` (`adminname`, `password`) VALUES
-('habaneroadmin1', '$2y$10$ioMaxzDbnjxDS7H2T2Eheuk8T23.x3PQZR2P90iSiTwZg6bCvTrF6');
+('habaneroadmin1', '$2y$10$ioMaxzDbnjxDS7H2T2Eheuk8T23.x3PQZR2P90iSiTwZg6bCvTrF6'),
+('testiadmin', '$2y$10$u6QxuTzaPADEPVM2XUJtle.syhDpTmTCG4dFI3E3TlEI5jcp9MpOS');
