@@ -45,9 +45,10 @@ class OstoskoriModel extends Model
   public function ostoskori_lkm()
   {
     if (count($_SESSION['kori']) < 1) {
-      return "";
+      return array('Ostokorisi on tyhjä','disabled', '');
     }
-    return count($_SESSION['kori']);
+      $maara = count($_SESSION['kori']);
+      return array('','', $maara);
   }
 
   /**

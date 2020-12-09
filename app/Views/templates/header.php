@@ -94,17 +94,18 @@
             </div>
           </li>
 
-          <li class="nav-item zoom ml-2">
-            <a id="kori" class="nav-link" href="<?= site_url('ostoskori/index'); ?>">
+          <li class="nav-item ml-2" data-toggle="tooltip" data-trigger="click" title="<?= $ostoskori_lkm[0] ?>">
+            <a id="kori" class="nav-link zoom <?= $ostoskori_lkm[1] ?>" href="<?= site_url('ostoskori/index'); ?>">
               <i class="fas fa-shopping-cart">
-                <span class="badge badge-pill badge-danger"><?= $ostoskori_lkm ?></span>
+                <span class="badge badge-pill badge-danger"><?= $ostoskori_lkm[2] ?></span>
               </i>
             </a>
           </li>
+
         </ul>
       </div>
     </nav>
   </div>
   <!-- Tulostaa istuntomuuttujan debugaamista varten -->
-   <?= print_r($_SESSION); ?>
+  <!--   <?= print_r($_SESSION); ?> -->
   <div class="container">
