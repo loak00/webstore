@@ -107,9 +107,5 @@
     </nav>
   </div>
   <!-- Tulostaa istuntomuuttujan debugaamista varten -->
-<<<<<<< HEAD
   <!--   <?= print_r($_SESSION); ?> -->
-=======
-  <!--  <?= print_r($_SESSION); ?> -->
->>>>>>> 8b7a4e792e68555c2a1fef5e8c8d446dde2f1c7b
   <div class="container">
