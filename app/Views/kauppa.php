@@ -6,14 +6,14 @@
          <a href="<?= site_url('kauppa/tuote/' . $tuote['id']) ?>">
            <div class="card-body">
           
-             <h5 class="card-title"><?= $tuote['nimi'] ?></h5>
+             <h5 class="card-title d-flex align-items-center justify-content-center"><?= $tuote['nimi'] ?></h5>
              
              <img class="img-fluid zoom2" src="<?= base_url('img/thumb_' . $tuote['kuva']) ?>" alt="<?= $tuote['kuvan_kuvaus'] ?>"></img>
              
              <div style="height: 12em;">
              <p class="kuvausteksti text-muted"><?= $tuote['kuvaus'] ?></p>
              </div>
-             
+             <img class="img-fluid" src="<?= base_url('img/tuote-top.png') ?>" alt="Ylä-ornamentti">
              <div class="d-flex justify-content-between align-items-center">
              <p class="hinta"><?= $tuote['hinta'] ?> €</p>
              <form method="post" action="<?= site_url('ostoskori/lisaa/' . $tuote['id'] . "/" . $tuote['tuoteryhma_id']); ?>">
