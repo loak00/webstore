@@ -144,12 +144,13 @@ a.list-group-item:hover{
 }
 
 .card-title {
-  
-  height: 2em;
+  /* font-family: 'Patrick Hand SC', cursive;
+  font-size: 1.8em; */
+  height: 2.2em;
 }
 
 .kuvausteksti {
-  margin-top: 2em;
+  margin-top: 1.5em;
   margin-bottom: 2em;
   font-size: small;
 }
@@ -167,7 +168,7 @@ a.list-group-item:hover{
 }
 
 .tuotelogo {
-  font-family: "Amatic SC", cursive;
+  font-family: 'Patrick Hand SC', cursive;
   font-size: 2.3em;
 }
 
