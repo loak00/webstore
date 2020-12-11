@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="<?= base_url('/css/style.css'); ?>">
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <title>Cippoi & Cuppei</title>
 </head>
@@ -46,15 +45,17 @@
       </div>
     </a>
 
-    <nav class="navbar navbar-expand-lg navbar-dark shadow-lg p-2 mb-3 rounded-bottom">
+    <nav class="navbar navbar-expand navbar-dark shadow-lg p-2 mb-3 rounded-bottom">
 
-      <button class="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+        
         <a class="navbar-brand" href="<?= site_url('Home/index') ?>"><i class="fas fa-home collapse navbar-collapse zoom mr-2"></i></a>
-        <ul class="navbar-nav">
+
+        <ul class="navbar-nav d-none d-md-block">
           <li class="nav-item dropdown mr-2 ml-1">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Tuotteet
@@ -69,7 +70,7 @@
           </li>
         </ul>
 
-        <div class="mx-2 w-25">
+        <div class="mx-2 w-25 d-none d-md-block">
           <form class="input-group collapse navbar-collapse" method="post" action="<?= site_url('kauppa/etsi/') ?>">
             <input class="form-control border border-right-0" type="search" aria-label="Search" name="etsi" placeholder="Etsi tuotteista...">
             <span class="input-group-append">
@@ -81,9 +82,12 @@
         </div>
 
         <ul class="navbar-nav">
+
           <li class="nav-item mr-1 ml-2">
-            <a class="nav-link" href="<?= site_url('yhteystiedot/index'); ?>">Yhteystiedot</a>
+            <a class="nav-link" href="<?= site_url('yhteystiedot/index'); ?>">
+            <i class="fas fa-info-circle"></i> <span class="d-none d-md-inline"> Yhteystiedot</a></span>
           </li>
+          
           <li class="nav-item dropdown mr-1">
             <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-user pl-3 mr-1"></i><?= " " . $login[0]; ?>

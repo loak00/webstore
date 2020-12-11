@@ -1,8 +1,8 @@
     <div class="container-fluid">
       <footer class="py-5">
         <div>
-          <p class="m-0 text-center text-muted">Habanerot 2020</p>
-          <div class="m-0 py-2 text-center">
+          <p class="m-0 text-center text-muted footertext">Habanerot 2020</p>
+          <div class="m-0 py-1 text-center">
             <a href="https://www.facebook.com/"> <i class="fab fa-facebook-square fa-2x text-muted p-1 pr-3"></i></a>
             <a href="https://twitter.com/"><i class="fab fa-twitter-square fa-2x text-muted p-1"></i></a>
             <a href="https://www.instagram.com/"><i class="fab fa-instagram fa-2x text-muted p-1 pl-3"></i></a>
