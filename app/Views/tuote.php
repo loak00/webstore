@@ -8,6 +8,7 @@
       <h1 class="tuotelogo"><?= $tuote['nimi']; ?></h1>
       <p class="tuoteteksti"><?= $tuote['kuvaus']; ?></p>
       <p class="hinta"><?= $tuote['hinta']; ?> €</p>
+      <p>Saatavuus: <?= $tuote['varastomaara']; ?></p>
       <button class="bnt btn-primary shadow rounded"><i class="fas fa-shopping-basket"></i> &nbsp Lisää koriin</button>
       <img class="img-fluid mt-3" src="<?= base_url('img/tuote-bottom.png') ?>" alt="Ala-ornamentti">
     </div>

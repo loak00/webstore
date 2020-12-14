@@ -27,6 +27,17 @@ class Ostoskori extends BaseController
     $data['tuotteet'] = $this->ostoskoriModel->ostokori();
     $data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
     $data['login'] = $this->loginModel->kirjautunut();
+    $data['asiakas'] =
+      [
+        'firstname' => null,
+        'lastname' => null,
+        'lahiosoite' => null,
+        'postinumero' => null,
+        'postitoimipaikka' => null,
+        'email' => null,
+        'puhelin' => null
+        ];
+    
     if (isset($_SESSION['user'])){
     $data['asiakas'] =
       [
