@@ -103,7 +103,20 @@ class OstoskoriModel extends Model
 
   public function vahenna($tuote_id)
   {
-    // Haetaan tuote id:n perusteella tietokannasta tuoteModelia kautta.
+    for ($i = 0; $i < count($_SESSION['kori']); $i++) {
+      // Jos löytyy id:llä, tuote on jo taulukossa. Päivitetään määrää.
+      if ($_SESSION['kori'][$i]['id'] === $tuote_id) {
+        if ($_SESSION['kori'][$i]['maara'] > 1) {
+          $_SESSION['kori'][$i]['maara'] = $_SESSION['kori'][$i]['maara']  - 1;
+          return; // Koska tuote voi olla vain kerran taulukossa, voidaan for-lause ja etsiminen
+          // lopettaa, jos tuote löytyy. Return-lauseen avulla poistutaan for-lauseesta.
+        }
+        $this->poista($tuote_id);
+        return;
+      }
+    }
+    
+    /* // Haetaan tuote id:n perusteella tietokannasta tuoteModelia kautta.
     $tuote = $this->tuoteModel->haeTuote($tuote_id);
 
     // Luodaan ostoskoriin lisättävä tuote (taulukko, jossa kenttinä tarvittavat tiedot.)
@@ -114,10 +127,10 @@ class OstoskoriModel extends Model
     $ostoskorinTuote['kuvan_kuvaus'] = $tuote['kuvan_kuvaus'];
     $ostoskorinTuote['maara'] = 0;
 
-    $this->vahennaTuoteTaulukosta($ostoskorinTuote, $_SESSION['kori']);
+    $this->vahennaTuoteTaulukosta($ostoskorinTuote, $_SESSION['kori']); */
   }
 
-  private function vahennaTuoteTaulukosta($tuote, &$taulukko)
+  /* private function vahennaTuoteTaulukosta($tuote, &$taulukko)
   {
     // Käydään läpi taulukon rivit.
     for ($i = 0; $i < count($taulukko); $i++) {
@@ -134,7 +147,7 @@ class OstoskoriModel extends Model
     }
     $tuote['maara'] = 1; // Tuote ei ollut taulukossa, joten asetetaan määräksi 1.
     array_push($taulukko, $tuote);
-  }
+  } */
 
   /**
    * Poistaa tuotteen ostoskorista.
