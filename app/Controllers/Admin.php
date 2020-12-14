@@ -64,19 +64,21 @@ class Admin extends BaseController
 
   public function poista($id)
   {
-    $this->tuoteryhmaModel->poista($id);
+    
     if (!isset($_SESSION['admin'])){
 			return redirect('adminlogin');
-		}
+    }
+    $this->tuoteryhmaModel->poista($id);
     return redirect('admin/index');
   }
 
   public function poistaTuote($id)
   {
-    $this->tuoteModel->poista($id);
+    
     if (!isset($_SESSION['admin'])){
 			return redirect('adminlogin');
-		}
+    }
+    $this->tuoteModel->poista($id);
     return redirect()->back();
 
   }
@@ -103,8 +105,6 @@ class Admin extends BaseController
   }
 
   public function check() {
-    // $model = new LoginModel();
-
     if (!$this->validate([
         'adminname' => 'required|min_length[8]|max_length[30]',
         'password' => 'required|min_length[8]|max_length[30]',
