@@ -187,3 +187,12 @@ a.list-group-item:hover{
 .table td {
   vertical-align: middle !important;
 }
+
+/* Tee tähän Ostokorin CSS-määrittelyt */
+.red {
+  color: red
+}
+
+.green {
+  color: green;
+}
