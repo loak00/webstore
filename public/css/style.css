@@ -183,3 +183,7 @@ a.list-group-item:hover{
   margin-bottom: 2em;
   font-size: 0.9em;
 }
+
+.table td {
+  vertical-align: middle !important;
+}
