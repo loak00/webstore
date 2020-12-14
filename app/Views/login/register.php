@@ -45,5 +45,45 @@
             placeholder="Enter password again"
             maxlength="255">
     </div>
+    <div class="form-group">
+        <label>Lähiosoite</label>
+        <input
+            class="form-control"
+            name="lahiosoite"
+            placeholder="Lähiosoite"
+            maxlength="200">
+    </div>
+    <div class="form-group">
+        <label>Postinumero</label>
+        <input
+            class="form-control"
+            name="postinumero"
+            placeholder="Postinumero"
+            maxlength="200">
+    </div>
+    <div class="form-group">
+        <label>Postitoimipaikka</label>
+        <input
+            class="form-control"
+            name="postitoimipaikka"
+            placeholder="Postitoimipaikka"
+            maxlength="200">
+    </div>
+    <div class="form-group">
+        <label>Sähköpostiosoite</label>
+        <input
+            class="form-control"
+            name="email"
+            placeholder="Sähköpostiosoite"
+            maxlength="200">
+    </div>
+    <div class="form-group">
+        <label>Puhelinnumero</label>
+        <input
+            class="form-control"
+            name="puhelin"
+            placeholder="Puhelinnumero"
+            maxlength="200">
+    </div>
     <button class="btn btn-primary">Submit</button>
 </form>

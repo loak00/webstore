@@ -52,7 +52,7 @@
       </button>
 
       <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-        
+
         <a class="navbar-brand" href="<?= site_url('Home/index') ?>"><i class="fas fa-home collapse navbar-collapse zoom mr-2"></i></a>
 
         <ul class="navbar-nav d-none d-md-block">
@@ -85,13 +85,13 @@
 
           <li class="nav-item mr-1 ml-2">
             <a class="nav-link" href="<?= site_url('yhteystiedot/index'); ?>">
-            <i class="fas fa-info-circle mr-1"></i> <span class="d-none d-md-inline"> Yhteystiedot</a></span>
+              <i class="fas fa-info-circle mr-1"></i> <span class="d-none d-md-inline"> Yhteystiedot</a></span>
           </li>
-          
+
           <li class="nav-item dropdown mr-1">
             <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-user pl-3 mr-1"></i> <span class="d-none d-md-inline"><?= " " . $login[0]; ?></a></span>
-            
+
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a id="login" class="dropdown-item" href="<?= site_url('login/' . $login[1]); ?>">
                 <?= $login[2] ?>
@@ -111,6 +111,6 @@
       </div>
     </nav>
   </div>
-  <!-- Tulostaa istuntomuuttujan debugaamista varten -->
-  <!--   <?= print_r($_SESSION); ?> -->
+ <!-- Tulostaa istuntomuuttujan debugaamista varten -->
+ <?= print_r($_SESSION); ?> 
   <div class="container">

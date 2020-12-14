@@ -8,7 +8,8 @@ class LoginModel extends Model
 {
     protected $table = 'user';
 
-    protected $allowedFields = ['username', 'password', 'firstname', 'lastname'];
+    protected $allowedFields = ['username', 'password', 'firstname', 'lastname',
+     'lahiosoite', 'postinumero', 'postitoimipaikka', 'email', 'puhelin'];
 
     public function __construct()
     {

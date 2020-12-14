@@ -57,7 +57,12 @@ class Login extends BaseController
                 'username' => $this->request->getVar('username'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
                 'firstname' => $this->request->getVar('firstname'),
-                'lastname' => $this->request->getVar('lastname')
+                'lastname' => $this->request->getVar('lastname'),
+                'lahiosoite' => $this->request->getVar('lahiosoite'),
+                'postinumero' => $this->request->getVar('postinumero'),
+                'postitoimipaikka' => $this->request->getVar('postitoimipaikka'),
+                'email' => $this->request->getVar('email'),
+                'puhelin' => $this->request->getVar('puhelin'),
             ]);
             return redirect('login');
         }

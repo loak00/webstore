@@ -178,7 +178,12 @@ CREATE TABLE `user` (
   `username` varchar(30) NOT NULL,
   `password` varchar(255) NOT NULL,
   `firstname` varchar(100) DEFAULT NULL,
-  `lastname` varchar(100) DEFAULT NULL
+  `lastname` varchar(100) DEFAULT NULL,
+  `lahiosoite` varchar(100),
+  `postitoimipaikka` varchar(50),
+  `postinumero` char(5),
+  `puhelin` varchar(20),
+  `email` varchar(100)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

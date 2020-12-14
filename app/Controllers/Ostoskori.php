@@ -25,9 +25,20 @@ class Ostoskori extends BaseController
   {
     $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
     $data['tuotteet'] = $this->ostoskoriModel->ostokori();
-    /* $data['tuotteet'] = $this->tuoteModel->haeTuotteet($_SESSION['kori'][]); */
     $data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
     $data['login'] = $this->loginModel->kirjautunut();
+    if (isset($_SESSION['user'])){
+    $data['asiakas'] =
+      [
+      'firstname' => $_SESSION['user']->firstname,
+      'lastname' => $_SESSION['user']->lastname,
+      'lahiosoite' => $_SESSION['user']->lahiosoite,
+      'postinumero' => $_SESSION['user']->postinumero,
+      'postitoimipaikka' => $_SESSION['user']->postitoimipaikka,
+      'email' => $_SESSION['user']->email,
+      'puhelin' => $_SESSION['user']->puhelin
+      ];
+    }
     echo view('templates/header', $data);
     echo view('ostoskori.php', $data);
     echo view('templates/footer');
@@ -70,7 +81,8 @@ class Ostoskori extends BaseController
   public function tilaa()
   {
     $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
-    $asiakas = [
+    
+    $asiakas = [ // Jos ei sisäänkirjautunut, käyttäjän täytyy syöttää arvot input-kenttiin
       'etunimi' => $this->request->getPost('etunimi'),
       'sukunimi' => $this->request->getPost('sukunimi'),
       'lahiosoite' => $this->request->getPost('lahiosoite'),
@@ -79,6 +91,8 @@ class Ostoskori extends BaseController
       'email' => $this->request->getPost('email'),
       'puhelin' => $this->request->getPost('puhelin')
     ];
+
+
 
     $this->ostoskoriModel->tilaa($asiakas);
 

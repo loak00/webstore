@@ -58,39 +58,38 @@ $loppusumma = 0;
                 </td>
             </tr>
         </table>
-
         <h3>Tilaajan tiedot</h3>
         <form action="<?= site_url('ostoskori/tilaa') ?>" method="post">
             <div class="col-12">
                 <?= \Config\Services::validation()->listErrors(); ?>
-            </div>
+            </div>      
             <div class="form-group">
                 <label>Etunimi</label>
-                <input class="form-control" name="etunimi" placeholder="Etunimi" maxlength="30">
+                <input class="form-control" name="etunimi" placeholder="Etunimi" maxlength="30" value="<?=$asiakas['firstname']?>">
             </div>
             <div class="form-group">
                 <label>Sukunimi</label>
-                <input class="form-control" name="sukunimi" placeholder="Sukunimi" maxlength="30">
+                <input class="form-control" name="sukunimi" placeholder="Sukunimi" maxlength="30" value="<?=$asiakas['lastname']?>">
             </div>
             <div class="form-group">
                 <label>Lähiosoite</label>
-                <input class="form-control" name="lahiosoite" placeholder="Lähiosoite" maxlength="30">
+                <input class="form-control" name="lahiosoite" placeholder="Lähiosoite" maxlength="30" value="<?=$asiakas['lahiosoite']?>">
             </div>
             <div class="form-group">
                 <label>Postinumero</label>
-                <input class="form-control" name="postinumero" type="number" placeholder="Postinumero" maxlength="30">
+                <input class="form-control" name="postinumero" type="number" placeholder="Postinumero" maxlength="30" value="<?=$asiakas['postinumero']?>">
             </div>
             <div class="form-group">
                 <label>Postitoimipaikka</label>
-                <input class="form-control" name="postitoimipaikka" placeholder="Postitoimipaikka" maxlength="30">
+                <input class="form-control" name="postitoimipaikka" placeholder="Postitoimipaikka" maxlength="30" value="<?=$asiakas['postitoimipaikka']?>">
             </div>
             <div class="form-group">
                 <label>Sähköposti</label>
-                <input name="email" type="email" maxlength="255" class="form-control">
+                <input name="email" type="email" maxlength="255" class="form-control" value="<?=$asiakas['email']?>">
             </div>
             <div class="form-group">
                 <label>Puhelin</label>
-                <input name="puhelin" maxlength="20" class="form-control">
+                <input name="puhelin" maxlength="20" class="form-control" value="<?=$asiakas['puhelin']?>">
             </div>
             <button class="btn btn-primary">Vahvista tilaus</button>
         </form>
