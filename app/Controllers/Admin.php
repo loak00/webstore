@@ -7,6 +7,8 @@ use App\Models\LoginModel;
 use App\Models\ViestiModel;
 use App\Models\AdminLoginModel;
 use App\Models\TuoteModel;
+use App\Models\AsiakasModel;
+
 
 
 class Admin extends BaseController
@@ -16,6 +18,8 @@ class Admin extends BaseController
   private $loginModel = null;
   private $viestiModel = null;
   private $tuoteModel = null;
+  private $asiakasModel = null;
+
 
 
   function __construct()
@@ -24,6 +28,9 @@ class Admin extends BaseController
     $this->adminloginModel = new AdminLoginModel();
     $this->viestiModel = new ViestiModel();
     $this->tuoteModel = new TuoteModel();
+    $this->tuoteModel = new AsiakasModel();
+
+
 
   }
 

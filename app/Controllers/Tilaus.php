@@ -61,6 +61,10 @@ class Tilaus extends BaseController
     if (!isset($_SESSION['admin'])){
 			return redirect('adminlogin');
 		}
-    echo "TODO";
+    $data['otsikko'] = 'Asiakkaat';
+    $data['asiakkaat'] = $this->asiakasModel->haeAsiakkaat();
+    echo view('templates/header_admin.php');
+    echo view('admin/asiakas.php', $data);
+    echo view('templates/footer.php');
   }
 }
