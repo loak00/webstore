@@ -12,12 +12,12 @@ class Kauppa extends BaseController
 	private $tuoteryhmaModel = null;
 	private $tuoteModel = null;
 	private $loginModel = null;
-	private $ostoskoriModel=null;
+	private $ostoskoriModel = null;
 
 	function __construct()
 	{
 		$session = \Config\Services::session();
-        $session->start();
+		$session->start();
 		$this->tuoteryhmaModel = new TuoteRyhmaModel();
 		$this->tuoteModel = new TuoteModel();
 		$this->loginModel = new LoginModel();
@@ -57,10 +57,10 @@ class Kauppa extends BaseController
 		echo view('templates/footer');
 	}
 
-		public function etsi() 
+	public function etsi()
 	{
 		$haku = $this->request->getPost('etsi');
-		if(strlen($haku) > 0) {
+		if (strlen($haku) > 0) {
 			$_SESSION['haku'] = $haku;
 		} else {
 			$haku = $_SESSION['haku'];
@@ -70,7 +70,18 @@ class Kauppa extends BaseController
 		$data['login'] = $this->loginModel->kirjautunut();
 		$data['tuotteet'] = $this->tuoteModel->haeTeksti($haku);
 		$data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
-		echo view('templates/header',$data);
+		echo view('templates/header', $data);
+		echo view('kauppa');
+		echo view('templates/footer');
+	}
+
+	public function haeTietty($haku)
+	{
+		$data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
+		$data['login'] = $this->loginModel->kirjautunut();
+		$data['tuotteet'] = $this->tuoteModel->haeTeksti($haku);
+		$data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
+		echo view('templates/header', $data);
 		echo view('kauppa');
 		echo view('templates/footer');
 	}
