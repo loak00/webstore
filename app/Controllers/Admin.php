@@ -28,10 +28,6 @@ class Admin extends BaseController
     $this->adminloginModel = new AdminLoginModel();
     $this->viestiModel = new ViestiModel();
     $this->tuoteModel = new TuoteModel();
-    $this->tuoteModel = new AsiakasModel();
-
-
-
   }
 
   public function index()
