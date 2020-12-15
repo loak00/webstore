@@ -36,19 +36,19 @@ class Ostoskori extends BaseController
         'postitoimipaikka' => null,
         'email' => null,
         'puhelin' => null
-        ];
-    
-    if (isset($_SESSION['user'])){
-    $data['asiakas'] =
-      [
-      'firstname' => $_SESSION['user']->firstname,
-      'lastname' => $_SESSION['user']->lastname,
-      'lahiosoite' => $_SESSION['user']->lahiosoite,
-      'postinumero' => $_SESSION['user']->postinumero,
-      'postitoimipaikka' => $_SESSION['user']->postitoimipaikka,
-      'email' => $_SESSION['user']->email,
-      'puhelin' => $_SESSION['user']->puhelin
       ];
+
+    if (isset($_SESSION['user'])) {
+      $data['asiakas'] =
+        [
+          'firstname' => $_SESSION['user']->firstname,
+          'lastname' => $_SESSION['user']->lastname,
+          'lahiosoite' => $_SESSION['user']->lahiosoite,
+          'postinumero' => $_SESSION['user']->postinumero,
+          'postitoimipaikka' => $_SESSION['user']->postitoimipaikka,
+          'email' => $_SESSION['user']->email,
+          'puhelin' => $_SESSION['user']->puhelin
+        ];
     }
     echo view('templates/header', $data);
     echo view('ostoskori.php', $data);
@@ -91,8 +91,12 @@ class Ostoskori extends BaseController
    */
   public function tilaa()
   {
+    // tarkistetaan, että  ostokori on tyhjä
+    if (isset(!$_SESSION['kori'])) {
+      return redirect()->back(); // palataan takaisin samalle sivulle
+    }
     $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
-    
+
     $asiakas = [ // Jos ei sisäänkirjautunut, käyttäjän täytyy syöttää arvot input-kenttiin
       'etunimi' => $this->request->getPost('etunimi'),
       'sukunimi' => $this->request->getPost('sukunimi'),
@@ -103,8 +107,6 @@ class Ostoskori extends BaseController
       'puhelin' => $this->request->getPost('puhelin')
     ];
 
-
-
     $this->ostoskoriModel->tilaa($asiakas);
 
     $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
@@ -113,7 +115,7 @@ class Ostoskori extends BaseController
     $data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
     $data['login'] = $this->loginModel->kirjautunut();
     echo view('templates/header', $data);
-    echo view('kiitos'); 
+    echo view('kiitos');
     echo view('templates/footer');
   }
 }

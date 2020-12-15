@@ -12,7 +12,7 @@ use webstore;
 -- Rakenne taululle `asiakas`
 --
 
-CREATE TABLE `asiakas` (
+/* CREATE TABLE `asiakas` (
   `id` int(11) NOT NULL,
   `sukunimi` varchar(50) NOT NULL,
   `etunimi` varchar(50) NOT NULL,
@@ -34,7 +34,7 @@ INSERT INTO `asiakas` (`id`, `sukunimi`, `etunimi`, `lahiosoite`, `postitoimipai
 (5, 'Ilta', 'Rusko', 'dddd', 'dddd', '7777', '77777', 'ddd@dddd.com');
 
 -- --------------------------------------------------------
-
+ */
 --
 -- Rakenne taululle `tilaus`
 --
@@ -42,19 +42,17 @@ INSERT INTO `asiakas` (`id`, `sukunimi`, `etunimi`, `lahiosoite`, `postitoimipai
 CREATE TABLE `tilaus` (
   `id` int(11) NOT NULL,
   `paivays` timestamp NOT NULL DEFAULT current_timestamp(),
-  `asiakas_id` int(11) NOT NULL,
+  `user_id` int(11),
+  `sukunimi` varchar(50) NOT NULL,
+  `etunimi` varchar(50) NOT NULL,
+  `lahiosoite` varchar(100) NOT NULL,
+  `postitoimipaikka` varchar(50) NOT NULL,
+  `postinumero` char(5) NOT NULL,
+  `puhelin` varchar(20) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
   `tila` enum('tilattu','toimitettu') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Vedos taulusta `tilaus`
---
-
-INSERT INTO `tilaus` (`id`, `paivays`, `asiakas_id`, `tila`) VALUES
-(2, '2020-12-05 20:00:30', 2, NULL),
-(3, '2020-12-05 20:09:05', 3, NULL),
-(4, '2020-12-05 20:11:54', 4, NULL),
-(5, '2020-12-05 20:42:33', 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -72,17 +70,6 @@ CREATE TABLE `tilausrivi` (
 -- Vedos taulusta `tilausrivi`
 --
 
-INSERT INTO `tilausrivi` (`tilaus_id`, `tuote_id`, `maara`) VALUES
-(2, 3, NULL),
-(2, 5, NULL),
-(2, 4, NULL),
-(2, 3, NULL),
-(2, 2, NULL),
-(2, 1, NULL),
-(3, 4, NULL),
-(3, 3, NULL),
-(4, 4, NULL),
-(5, 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -239,15 +226,15 @@ INSERT INTO `viesti` (`id`, `email`, `viesti`, `saved`) VALUES
 --
 -- Indexes for table `asiakas`
 --
-ALTER TABLE `asiakas`
+/* ALTER TABLE `asiakas`
   ADD PRIMARY KEY (`id`);
-
+ */
 --
 -- Indexes for table `tilaus`
 --
 ALTER TABLE `tilaus`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `asiakas_id` (`asiakas_id`);
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `tilausrivi`
@@ -297,9 +284,9 @@ ALTER TABLE `viesti`
 --
 -- AUTO_INCREMENT for table `asiakas`
 --
-ALTER TABLE `asiakas`
+/* ALTER TABLE `asiakas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+ */
 --
 -- AUTO_INCREMENT for table `tilaus`
 --
@@ -344,7 +331,7 @@ ALTER TABLE `viesti`
 -- Rajoitteet taululle `tilaus`
 --
 ALTER TABLE `tilaus`
-  ADD CONSTRAINT `tilaus_ibfk_1` FOREIGN KEY (`asiakas_id`) REFERENCES `asiakas` (`id`);
+  ADD CONSTRAINT `tilaus_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Rajoitteet taululle `tilausrivi`

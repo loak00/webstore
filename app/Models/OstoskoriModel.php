@@ -45,10 +45,10 @@ class OstoskoriModel extends Model
   public function ostoskori_lkm()
   {
     if (count($_SESSION['kori']) < 1) {
-      return array('Ostokorisi on tyhjä','disabled', '');
+      return array('Ostokorisi on tyhjä', 'disabled', '');
     }
-      $maara = count($_SESSION['kori']);
-      return array('','', $maara);
+    $maara = count($_SESSION['kori']);
+    return array('', '', $maara);
   }
 
   /**
@@ -115,7 +115,7 @@ class OstoskoriModel extends Model
         return;
       }
     }
-    
+
     /* // Haetaan tuote id:n perusteella tietokannasta tuoteModelia kautta.
     $tuote = $this->tuoteModel->haeTuote($tuote_id);
 
@@ -181,10 +181,15 @@ class OstoskoriModel extends Model
     // Aloitetaan transaktiot.
     $this->db->transStart();
     // Tallennetaan asiakas.
-    $this->asiakasModel->save($asiakas);
-    $asiakas_id = $this->insertID();
-    // Tallennetaan tilaus.
-    $this->tilausModel->save(['asiakas_id' => $asiakas_id]);
+    // $this->asiakasModel->save($asiakas);
+    // $asiakas_id = $this->insertID();
+    // Jos kirjautunut käyttäjä, lisätään id istuntomuuttujasta
+    if (isset($_SESSION['user'])) {
+      $asiakas['user_id']=$_SESSION['user']->id;
+    }
+    // Tallennetaan tilaus.    
+    $this->tilausModel->save($asiakas);
+    
     $tilaus_id = $this->insertID();
     // Tallennetaan tilausrivit.
     foreach ($_SESSION['kori'] as $tuote) {

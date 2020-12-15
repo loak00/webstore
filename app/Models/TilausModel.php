@@ -9,16 +9,16 @@ class TilausModel extends Model {
   protected $table = 'tilaus'; // Malli käsittelee tilaus-taulua tietokannassa.
 
   // Luettelo niistä kentistä, joita päivitetään, kun ajetaan tallennus (esim. save) tietokantaan.
-  protected $allowedFields = ['asiakas_id']; 
+  protected $allowedFields = ['user_id','etunimi','sukunimi','lahiosoite','postinumero','postitoimipaikka','email','puhelin']; 
 
   public function haeTilaukset() {
-    $this->select('asiakas.etunimi as etunimi,
-    asiakas.sukunimi as sukunimi,
+    $this->select('tilaus.etunimi as etunimi,
+    tilaus.sukunimi as sukunimi,
     tilaus.id as tilausid,
     tilaus.paivays,
     tilausrivi.maara,
     tuote.nimi');
-    $this->join('asiakas','asiakas.id = tilaus.asiakas_id');
+    /* $this->join('asiakas','asiakas.id = tilaus.asiakas_id'); */
     $this->join('tilausrivi','tilausrivi.tilaus_id = tilaus.id');
     $this->join('tuote','tuote.id = tilausrivi.tuote_id');
     $kysely = $this->get();
