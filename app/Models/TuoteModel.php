@@ -13,10 +13,42 @@ class TuoteModel extends Model
 
   public function haeKaikkiTuotteet()
   {
-    return $this->findAll();
+      return $this->findAll();  
+     
   }
-
-
+  public function laskevaHinta()
+  {
+    
+    $this->select('*');
+    $this->orderBy('hinta', 'desc');
+    $query = $this->get();
+    return $query->getResultArray();
+  }
+  public function nousevaHinta()
+  {
+    
+    $this->select('*');
+    $this->orderBy('hinta');
+    $query = $this->get();
+    return $query->getResultArray();
+  }
+  public function aakkosjarjestys()
+  {
+    
+    $this->select('*');
+    $this->orderBy('nimi');
+    $query = $this->get();
+    return $query->getResultArray();
+  }
+  public function aakkosjarjestysAlas()
+  {
+    
+    $this->select('*');
+    $this->orderBy('nimi', 'desc');
+    $query = $this->get();
+    return $query->getResultArray();
+  }
+  
   public function haeTuoteryhmalla($tuoteryhma_id)
   {
     return $this->getWhere(['tuoteryhma_id' => $tuoteryhma_id])->getResultArray();

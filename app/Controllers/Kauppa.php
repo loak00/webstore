@@ -53,9 +53,51 @@ class Kauppa extends BaseController
 		$data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
 		$data['login'] = $this->loginModel->kirjautunut();
 		echo view('templates/header', $data);
+		echo view('jarjesta');
 		echo view('kauppa');
 		echo view('templates/footer');
 	}
+	public function kalleinEnsin() {
+		$data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
+		$data['tuotteet'] = $this->tuoteModel->laskevaHinta();
+		$data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
+		$data['login'] = $this->loginModel->kirjautunut();
+		echo view('templates/header', $data);
+		echo view('jarjesta');
+		echo view('kauppa');
+		echo view('templates/footer');
+	}
+	public function halvinEnsin() {
+		$data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
+		$data['tuotteet'] = $this->tuoteModel->nousevaHinta();
+		$data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
+		$data['login'] = $this->loginModel->kirjautunut();
+		echo view('templates/header', $data);
+		echo view('jarjesta');
+		echo view('kauppa');
+		echo view('templates/footer');
+	}
+	public function aakkosetYlos() {
+		$data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
+		$data['tuotteet'] = $this->tuoteModel->aakkosjarjestys();
+		$data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
+		$data['login'] = $this->loginModel->kirjautunut();
+		echo view('templates/header', $data);
+		echo view('jarjesta');
+		echo view('kauppa');
+		echo view('templates/footer');
+	}
+	public function aakkosetAlas() {
+		$data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
+		$data['tuotteet'] = $this->tuoteModel->aakkosjarjestysAlas();
+		$data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
+		$data['login'] = $this->loginModel->kirjautunut();
+		echo view('templates/header', $data);
+		echo view('jarjesta');
+		echo view('kauppa');
+		echo view('templates/footer');
+	}
+	
 
 	public function etsi()
 	{
