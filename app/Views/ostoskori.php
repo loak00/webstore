@@ -76,11 +76,11 @@ $loppusumma = 0;
                         </div>
                         <div class="col-sm-3">
                             <label>Postinumero</label>
-                            <input class="form-control" name="postinumero" type="number" placeholder="Postinumero" maxlength="30" value="<?= $asiakas['postinumero'] ?>">
+                            <input class="form-control" name="postinumero" type="number" placeholder="Postinumero"  minlength="5" maxlength="5" value="<?= $asiakas['postinumero'] ?>">
                         </div>
                         <div class="col-sm-3">
                             <label>Postitoimipaikka</label>
-                            <input class="form-control" name="postitoimipaikka" placeholder="Postitoimipaikka" maxlength="30" value="<?= $asiakas['postitoimipaikka'] ?>">
+                            <input class="form-control" name="postitoimipaikka" placeholder="Postitoimipaikka" maxlength="50" value="<?= $asiakas['postitoimipaikka'] ?>">
                         </div>
                     </div>
 
