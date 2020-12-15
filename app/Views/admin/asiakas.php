@@ -4,6 +4,7 @@
     <?php foreach ($asiakkaat as $asiakas) : ?>
 
         <tr>
+            <td><?= $asiakas['id'] ?></td>
             <td><?= $asiakas['etunimi'] ?></td>
             <td><?= $asiakas['sukunimi'] ?></td>
             <td><?= $asiakas['postitoimipaikka'] ?></td>

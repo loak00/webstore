@@ -16,7 +16,8 @@ class AsiakasModel extends Model
 
   public function haeAsiakkaat()
   {
-    $this->select('asiakas.etunimi as etunimi,
+    $this->select('asiakas.id as id,
+    asiakas.etunimi as etunimi,
     asiakas.sukunimi as sukunimi,
     asiakas.lahiosoite as osoite,
     asiakas.postinumero as postinumero,

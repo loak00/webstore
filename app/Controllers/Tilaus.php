@@ -43,9 +43,7 @@ class Tilaus extends BaseController
    * @param int $id Poistettavan tilauksen id.
    */
     public function poista($id) {
-    // Poistetaan ensin tuotteet tuoteryhmän alta.
     $this->tilausriviModel->poistaTilauksella($id);
-    // Poistetaan tuoteryhmä.
     $this->tilausModel->poista($id);
     if (!isset($_SESSION['admin'])){
 			return redirect('adminlogin');
@@ -67,4 +65,14 @@ class Tilaus extends BaseController
     echo view('admin/asiakas.php', $data);
     echo view('templates/footer.php');
   }
+
+  public function toimita($id) {
+    $this->tilausModel->toimita($id);
+    if (!isset($_SESSION['admin'])){
+			return redirect('adminlogin');
+		}
+    return redirect()->to(site_url('/tilaus/index'));
+  }
+
+
 }

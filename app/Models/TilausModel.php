@@ -39,4 +39,12 @@ class TilausModel extends Model
     $this->where('id', $id);
     $this->delete();
   }
+
+  public function toimita($id)
+  {
+    $this->where('id', $id);
+    echo "Toimitettu";
+  }
+
+
 }
