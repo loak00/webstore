@@ -204,4 +204,5 @@ class OstoskoriModel extends Model
     // Päätetään transaktio.
     $this->db->transComplete();
   }
-}
+ 
+  }

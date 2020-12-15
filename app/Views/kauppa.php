@@ -1,5 +1,8 @@
+
  <div class="row pt-5">
+ 
    <?php foreach ($tuotteet as $tuote) : ?>
+    
      <div class="col-lg-3 col-md-6 mb-4">
        <div class="card h-100 text-center shadow">
          

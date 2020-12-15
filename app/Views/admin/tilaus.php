@@ -19,10 +19,10 @@ use App\Libraries\Util;
   <td><?=$tilaus['nimi']?></td>
   <td><?=$tilaus['maara']?></td>
   <?php if ($tilaus_id != $tilaus['tilausid']) {?>
-    <!-- <td><a href="#">Toimita</a></td> -->
+    <td><a href="<?= site_url('tilaus/toimita/'. $tilaus['tilausid'])?>" onclick="return confirm('Tilaus on toimitettu.');">Toimita</a></td>
     <td><a href="<?= site_url('tilaus/poista/'. $tilaus['tilausid'])?>" onclick="return confirm('Haluatko varmasti poistaa tilauksen?');">Poista</a></td>
   <?php } else {?>
-    <!-- <td></td> -->
+    <td></td>
     <td></td>
   <?php } ?>  
   <?php

@@ -92,30 +92,40 @@ class Ostoskori extends BaseController
   public function tilaa()
   {
     // tarkistetaan, että  ostokori on tyhjä
-    if (isset(!$_SESSION['kori'])) {
-      return redirect()->back(); // palataan takaisin samalle sivulle
+    if (count($_SESSION['kori']) < 1) {
+      return redirect()->back();
     }
-    $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
+    if ($this->validate([
+      'etunimi' => 'required|min_length[1]|max_length[100]',
+      'sukunimi' => 'required|min_length[1]|max_length[100]',
+      'lahiosoite' => 'required|min_length[1]|max_length[100]',
+      'postinumero' => 'required|min_length[5]|max_length[5]',
+      'postitoimipaikka' => 'required|min_length[1]|max_length[50]'
+    ])) {
 
-    $asiakas = [ // Jos ei sisäänkirjautunut, käyttäjän täytyy syöttää arvot input-kenttiin
-      'etunimi' => $this->request->getPost('etunimi'),
-      'sukunimi' => $this->request->getPost('sukunimi'),
-      'lahiosoite' => $this->request->getPost('lahiosoite'),
-      'postinumero' => $this->request->getPost('postinumero'),
-      'postitoimipaikka' => $this->request->getPost('postitoimipaikka'),
-      'email' => $this->request->getPost('email'),
-      'puhelin' => $this->request->getPost('puhelin')
-    ];
+      $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
 
-    $this->ostoskoriModel->tilaa($asiakas);
+      $asiakas = [
+        'etunimi' => $this->request->getPost('etunimi'),
+        'sukunimi' => $this->request->getPost('sukunimi'),
+        'lahiosoite' => $this->request->getPost('lahiosoite'),
+        'postinumero' => $this->request->getPost('postinumero'),
+        'postitoimipaikka' => $this->request->getPost('postitoimipaikka'),
+        'email' => $this->request->getPost('email'),
+        'puhelin' => $this->request->getPost('puhelin')
+      ];
 
-    $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
-    $data['tuotteet'] = $this->ostoskoriModel->ostokori();
-    /* $data['tuotteet'] = $this->tuoteModel->haeTuotteet($_SESSION['kori'][]); */
-    $data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
-    $data['login'] = $this->loginModel->kirjautunut();
-    echo view('templates/header', $data);
-    echo view('kiitos');
-    echo view('templates/footer');
+      $this->ostoskoriModel->tilaa($asiakas);
+
+      $data['tuoteryhmat'] = $this->tuoteryhmaModel->haeTuoteryhmat();
+      $data['tuotteet'] = $this->ostoskoriModel->ostokori();
+      $data['ostoskori_lkm'] = $this->ostoskoriModel->ostoskori_lkm();
+      $data['login'] = $this->loginModel->kirjautunut();
+      echo view('templates/header', $data);
+      echo view('kiitos');
+      echo view('templates/footer');
+    } else {
+      return redirect()->back();
+    }
   }
 }
