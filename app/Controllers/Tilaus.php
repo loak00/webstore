@@ -67,7 +67,7 @@ class Tilaus extends BaseController
   }
 
   public function toimita($id) {
-    $this->tilausModel->toimita($id);
+   /*  $this->tilausModel->toimita($id); */
     if (!isset($_SESSION['admin'])){
 			return redirect('adminlogin');
 		}
