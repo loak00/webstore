@@ -19,7 +19,7 @@
     <form method="post" action="<?= site_url('yhteystiedot/viesti/'); ?>">
     <div class="container">
         <input type="email" placeholder="Sähköpostiosoitteesi" name="mail2" required>
-        <textarea name="viesti" class="form-control" row="5"></textarea>
+        <textarea name="viesti" placeholder="Kirjoita viestisi tähän" class="form-control" row="5"></textarea>
         <button class="bnt btn-primary laheta">Lähetä</button>
       </div>
       </form>
